@@ -7,7 +7,6 @@
 #include <iostream>
 #include <QFileDialog>
 #include "protocol.h"
-//#include "CheckHeader.h"
 #include <QtDebug>
 #include <QtGui>
 #include <QTextCodec>
@@ -26,21 +25,6 @@ using namespace std;
 #include "devpkey.h"
 #endif //ARM
 
-static const QString PColorRed(" QProgressBar::chunk{background-color: red} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorGreen(" QProgressBar::chunk{background-color: green} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorBlue(" QProgressBar::chunk{background-color: blue} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorYellow(" QProgressBar::chunk{background-color: yellow} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorDarkRed(" QProgressBar::chunk{background-color: darkRed} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorDarkMagenta(" QProgressBar::chunk{background-color: darkMagenta} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorDarkCyan(" QProgressBar::chunk{background-color: darkCyan} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorDarkBlue(" QProgressBar::chunk{background-color: darkBlue} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorMagenta(" QProgressBar::chunk{background-color: magenta} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorDarkGray(" QProgressBar::chunk{background-color: darkGray} QProgressBar {text-align: center; border-radius: 0px}");
-static const QString PColorOrange("QProgressBar::chunk{background-color:rgba(255,170,127,255} QProgressBar {text-align:center; border-radius:0px}");
-static const QString PColorBrown("QProgressBar::chunk{background-color:rgba(85,0,0,255} QProgressBar {text-align:center; border-radius:0px}");
-
-
-
 static int m_protocol = FIREHOSE_PROTOCOL;
 static int m_class = CLASS_SAHARA;
 static int m_chipset = 8974;
@@ -55,27 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 	ui->setupUi(this);
 
-	//ui->statusBar->setStyleSheet("color: blue;" "background - color: yellow;""selection-color: yellow;""selection-background-color: blue;");
-	//statusBar->setStyleSheet("statusBar { background-color: yellow }");
-	//ui->progressBar->setStyleSheet("{border: 2px solid grey;border - radius: 5px;}");
-	//ui->progressBar->setStyleSheet(PColorMagenta);
-	//storagePathLabel = new QLabel;
-	//QString storagePath = QString::fromUtf8("Kiểm tra bản cập nhập");
-	//storagePathLabel->setFrameStyle(QFrame::Box | QFrame::Sunken);
-	//storagePathLabel->setText(storagePath);
-	//storagePathLabel->setTextFormat(Qt::RichText);
-	//storagePathLabel->setOpenExternalLinks(true);
-	//ui->statusBar->addPermanentWidget(storagePathLabel);
 
 	CreateWidget();
-	//ui->tableWidget->setHorizontalHeader(header_);
-	//ui->tableWidget->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
-	//ui->tableWidget->setColumnHidden(columnRegion, true);
-	/*foreach(const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
-	ui->comboBox->addItem(info.portName());*/
-	//ui->checkBox_firehose->setChecked(true);
-
-	//ui->textEdit->setHidden(true);
 
 	mThread = new MyThread(this);
 	// connect signal/slot
