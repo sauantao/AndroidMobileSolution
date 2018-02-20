@@ -19,6 +19,7 @@ int InitDiskList()
 #endif //ARM
 
 	//wprintf(_T("Tim kiem tat ca cac thiet bi o che do 9008 ...\n\n"));
+	cout << "tim kiem tat ca cac thiet bi 9008\n";
 #ifndef ARM
 	if (hDevInfo != INVALID_HANDLE_VALUE) {
 		// Successfully got a list of ports
@@ -33,15 +34,9 @@ int InitDiskList()
 			// successfully found entry print out the info
 			if (SetupDiGetDeviceProperty(hDevInfo, &DeviceInfoData, &DEVPKEY_Device_FriendlyName, &ulPropertyType, (BYTE*)szBuffer, sizeof(szBuffer), &dwSize, 0)) {
 				if ((GetLastError() == ERROR_SUCCESS) && wcsstr(szBuffer, L"QDLoader 9008") != NULL) {
-					//wprintf(_T(">>"));
 					wprintf(szBuffer);
-					//wprintf(_T("\n\n"));
-					//WCHAR *vcom = wcsstr(szBuffer, L"COM");
-					//wprintf(_T("\n"));
-					//wprintf(_T(">> : ("));
-					//wprintf(vcom);
-					//wprintf(_T("\n\n\n\n\n"));
-
+					cout << endl;
+					//cout << szBuffer << endl;
 				}
 			}
 		}
