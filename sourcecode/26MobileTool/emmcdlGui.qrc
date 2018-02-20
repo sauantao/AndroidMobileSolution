@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="/ImageButton">
+    <file>image/Button/if_button-power_red_69071.png</file>
+    <file>image/Button/if_button-cross_red_69065.png</file>
+    <file>image/Button/if_button-check_blue_68680.png</file>
+    <file>image/Button/checl.png</file>
+    <file>image/Button/power.png</file>
+    <file>image/Button/if_start_71143.png</file>
+    <file>image/Button/reboot.png</file>
+    <file>image/Button/turnoff.png</file>
+    <file>Add_folder.png</file>
+  </qresource>
+</RCC>
