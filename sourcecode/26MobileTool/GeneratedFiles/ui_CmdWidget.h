@@ -59,6 +59,9 @@ public:
         font.setBold(false);
         font.setWeight(50);
         textEdit->setFont(font);
+        textEdit->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 0);\n"
+"font: 10pt \"Consolas\";\n"
+"color: \"white\""));
         textEdit->setFrameShape(QFrame::StyledPanel);
         textEdit->setFrameShadow(QFrame::Sunken);
 

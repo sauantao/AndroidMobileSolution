@@ -32,6 +32,11 @@
          <bold>false</bold>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(0, 0, 0);
+font: 10pt &quot;Consolas&quot;;
+color: &quot;white&quot;</string>
+       </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
