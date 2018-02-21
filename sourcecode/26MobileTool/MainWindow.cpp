@@ -1,8 +1,4 @@
 #include "MainWindow.h"
-#include <QString>
-#include <QtDebug>
-#include <QtGui>
-#include <QTextCodec>
 #include "cmdwidget.h"
 #include "adbwidget.h"
 #include "emmcrawwidget.h"
@@ -32,13 +28,12 @@ void MainWindow::CreateWidget()
 	cmd_widget = new CmdWidget(ui->tabWidget, this);
 	adb_widget = new AdbWidget(ui->tabWidget, this);
 	asus_widget = new AsusWidget(ui->tabWidget, this);
-
-	//emmcraw_widget = new EmmcRawWidget(ui->tabWidget, this);
+    emmcraw_widget = new EmmcRawWidget(ui->tabWidget, this);
 	qualcommobile_widget = new QualComMobileWidget(ui->tabWidget, this);
 
 	tab_widgets.push_back(adb_widget);
 	tab_widgets.push_back(cmd_widget);
-	//tab_widgets.push_back(emmcraw_widget);
+	tab_widgets.push_back(emmcraw_widget);
 	tab_widgets.push_back(qualcommobile_widget);
 	tab_widgets.push_back(asus_widget);
 
