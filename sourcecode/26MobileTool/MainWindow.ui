@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>26 QualCom Tool</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="26MobileTool.qrc">
+    <normaloff>:/AppIcon/image/Mobile.ico</normaloff>:/AppIcon/image/Mobile.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <property name="spacing">
@@ -349,7 +353,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="emmcdlGui.qrc"/>
+  <include location="26MobileTool.qrc"/>
  </resources>
  <connections/>
 </ui>

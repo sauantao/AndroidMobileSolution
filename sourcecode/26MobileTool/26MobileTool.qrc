@@ -10,4 +10,7 @@
     <file>image/Button/turnoff.png</file>
     <file>Add_folder.png</file>
   </qresource>
+  <qresource prefix="AppIcon">
+    <file>image/Mobile.ico</file>
+  </qresource>
 </RCC>

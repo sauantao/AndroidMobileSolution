@@ -24,6 +24,12 @@ QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window)
 {
   ui->setupUi(this);
   ui->checkBox_QcOnly->setChecked(true);
+  ui->checkBox_AutoBoot->setChecked(true);
+  ui->comboBox_BootSelect->addItem("- Select a Boot -");
+  ui->comboBox_BootSelect->addItem("- Select a Boot MSM8937 -");
+  ui->comboBox_BootSelect->addItem("- Select a Boot MSM8936 -");
+  ui->comboBox_BootSelect->addItem("- Select a Boot MSM8916 -");
+  ui->comboBox_BootSelect->addItem("- Select a Boot MSM8974 -");
   //updatePortList();
   //foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
      // ui->comboBox_ListCom->addItem(info.portName());

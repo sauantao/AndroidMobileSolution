@@ -34,14 +34,6 @@ public:
     QLabel *label_8;
     QToolButton *toolButton;
     QWidget *layoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QToolButton *toolButton_TurnOff_2;
-    QToolButton *toolButton_TurnOff_3;
-    QToolButton *toolButton_TurnOff_4;
-    QToolButton *toolButton_TurnOff;
-    QToolButton *toolButton_Reboot;
-    QToolButton *toolButton_2;
-    QWidget *widget;
     QHBoxLayout *horizontalLayout_2;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout;
@@ -79,10 +71,18 @@ public:
     QLineEdit *Android_Version_lineEdit;
     QLineEdit *Resolution_lineEdit;
     QLineEdit *ICType_lineEdit;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_3;
     QProgressBar *progressBar;
     QProgressBar *progressBar_2;
+    QWidget *layoutWidget_2;
+    QHBoxLayout *horizontalLayout;
+    QToolButton *toolButton_TurnOff_2;
+    QToolButton *toolButton_TurnOff_3;
+    QToolButton *toolButton_TurnOff_4;
+    QToolButton *toolButton_TurnOff;
+    QToolButton *toolButton_Reboot;
+    QToolButton *toolButton_2;
 
     void setupUi(QWidget *AdbWidget)
     {
@@ -101,88 +101,11 @@ public:
         toolButton->setGeometry(QRect(-210, 250, 25, 19));
         layoutWidget = new QWidget(AdbWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(230, 450, 711, 66));
-        horizontalLayout = new QHBoxLayout(layoutWidget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        toolButton_TurnOff_2 = new QToolButton(layoutWidget);
-        toolButton_TurnOff_2->setObjectName(QStringLiteral("toolButton_TurnOff_2"));
-        toolButton_TurnOff_2->setMinimumSize(QSize(64, 64));
-        toolButton_TurnOff_2->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff_2->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-power_red_69071.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_TurnOff_2->setIcon(icon);
-        toolButton_TurnOff_2->setIconSize(QSize(64, 64));
-
-        horizontalLayout->addWidget(toolButton_TurnOff_2);
-
-        toolButton_TurnOff_3 = new QToolButton(layoutWidget);
-        toolButton_TurnOff_3->setObjectName(QStringLiteral("toolButton_TurnOff_3"));
-        toolButton_TurnOff_3->setMinimumSize(QSize(64, 64));
-        toolButton_TurnOff_3->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff_3->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-cross_red_69065.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_TurnOff_3->setIcon(icon1);
-        toolButton_TurnOff_3->setIconSize(QSize(64, 64));
-
-        horizontalLayout->addWidget(toolButton_TurnOff_3);
-
-        toolButton_TurnOff_4 = new QToolButton(layoutWidget);
-        toolButton_TurnOff_4->setObjectName(QStringLiteral("toolButton_TurnOff_4"));
-        toolButton_TurnOff_4->setMinimumSize(QSize(64, 64));
-        toolButton_TurnOff_4->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff_4->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-check_blue_68680.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_TurnOff_4->setIcon(icon2);
-        toolButton_TurnOff_4->setIconSize(QSize(64, 64));
-
-        horizontalLayout->addWidget(toolButton_TurnOff_4);
-
-        toolButton_TurnOff = new QToolButton(layoutWidget);
-        toolButton_TurnOff->setObjectName(QStringLiteral("toolButton_TurnOff"));
-        toolButton_TurnOff->setMinimumSize(QSize(64, 64));
-        toolButton_TurnOff->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/ImageButton/image/Button/checl.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_TurnOff->setIcon(icon3);
-        toolButton_TurnOff->setIconSize(QSize(64, 64));
-
-        horizontalLayout->addWidget(toolButton_TurnOff);
-
-        toolButton_Reboot = new QToolButton(layoutWidget);
-        toolButton_Reboot->setObjectName(QStringLiteral("toolButton_Reboot"));
-        toolButton_Reboot->setMaximumSize(QSize(64, 64));
-        toolButton_Reboot->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/ImageButton/image/Button/reboot.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_Reboot->setIcon(icon4);
-        toolButton_Reboot->setIconSize(QSize(64, 64));
-
-        horizontalLayout->addWidget(toolButton_Reboot);
-
-        toolButton_2 = new QToolButton(layoutWidget);
-        toolButton_2->setObjectName(QStringLiteral("toolButton_2"));
-        toolButton_2->setMaximumSize(QSize(64, 64));
-        toolButton_2->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/ImageButton/image/Button/power.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_2->setIcon(icon5);
-        toolButton_2->setIconSize(QSize(64, 64));
-        toolButton_2->setToolButtonStyle(Qt::ToolButtonIconOnly);
-
-        horizontalLayout->addWidget(toolButton_2);
-
-        widget = new QWidget(AdbWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(460, 110, 481, 201));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        layoutWidget->setGeometry(QRect(460, 110, 481, 201));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        groupBox_2 = new QGroupBox(widget);
+        groupBox_2 = new QGroupBox(layoutWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         groupBox_2->setStyleSheet(QStringLiteral(""));
         gridLayout = new QGridLayout(groupBox_2);
@@ -270,7 +193,7 @@ public:
 
         horizontalLayout_2->addWidget(groupBox_2);
 
-        groupBox = new QGroupBox(widget);
+        groupBox = new QGroupBox(layoutWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setStyleSheet(QStringLiteral(""));
         gridLayout_2 = new QGridLayout(groupBox);
@@ -358,13 +281,13 @@ public:
 
         horizontalLayout_2->addWidget(groupBox);
 
-        widget1 = new QWidget(AdbWidget);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(460, 370, 481, 16));
-        horizontalLayout_3 = new QHBoxLayout(widget1);
+        layoutWidget1 = new QWidget(AdbWidget);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(460, 370, 481, 16));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        progressBar = new QProgressBar(widget1);
+        progressBar = new QProgressBar(layoutWidget1);
         progressBar->setObjectName(QStringLiteral("progressBar"));
         progressBar->setMinimumSize(QSize(0, 10));
         progressBar->setMaximumSize(QSize(16777215, 11));
@@ -374,7 +297,7 @@ public:
 
         horizontalLayout_3->addWidget(progressBar);
 
-        progressBar_2 = new QProgressBar(widget1);
+        progressBar_2 = new QProgressBar(layoutWidget1);
         progressBar_2->setObjectName(QStringLiteral("progressBar_2"));
         progressBar_2->setMinimumSize(QSize(0, 10));
         progressBar_2->setMaximumSize(QSize(16777215, 11));
@@ -387,15 +310,89 @@ public:
 
         horizontalLayout_3->addWidget(progressBar_2);
 
+        layoutWidget_2 = new QWidget(AdbWidget);
+        layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
+        layoutWidget_2->setGeometry(QRect(210, 440, 711, 66));
+        horizontalLayout = new QHBoxLayout(layoutWidget_2);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        toolButton_TurnOff_2 = new QToolButton(layoutWidget_2);
+        toolButton_TurnOff_2->setObjectName(QStringLiteral("toolButton_TurnOff_2"));
+        toolButton_TurnOff_2->setMinimumSize(QSize(64, 64));
+        toolButton_TurnOff_2->setMaximumSize(QSize(64, 64));
+        toolButton_TurnOff_2->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-power_red_69071.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_TurnOff_2->setIcon(icon);
+        toolButton_TurnOff_2->setIconSize(QSize(64, 64));
+
+        horizontalLayout->addWidget(toolButton_TurnOff_2);
+
+        toolButton_TurnOff_3 = new QToolButton(layoutWidget_2);
+        toolButton_TurnOff_3->setObjectName(QStringLiteral("toolButton_TurnOff_3"));
+        toolButton_TurnOff_3->setMinimumSize(QSize(64, 64));
+        toolButton_TurnOff_3->setMaximumSize(QSize(64, 64));
+        toolButton_TurnOff_3->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-cross_red_69065.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_TurnOff_3->setIcon(icon1);
+        toolButton_TurnOff_3->setIconSize(QSize(64, 64));
+
+        horizontalLayout->addWidget(toolButton_TurnOff_3);
+
+        toolButton_TurnOff_4 = new QToolButton(layoutWidget_2);
+        toolButton_TurnOff_4->setObjectName(QStringLiteral("toolButton_TurnOff_4"));
+        toolButton_TurnOff_4->setMinimumSize(QSize(64, 64));
+        toolButton_TurnOff_4->setMaximumSize(QSize(64, 64));
+        toolButton_TurnOff_4->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-check_blue_68680.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_TurnOff_4->setIcon(icon2);
+        toolButton_TurnOff_4->setIconSize(QSize(64, 64));
+
+        horizontalLayout->addWidget(toolButton_TurnOff_4);
+
+        toolButton_TurnOff = new QToolButton(layoutWidget_2);
+        toolButton_TurnOff->setObjectName(QStringLiteral("toolButton_TurnOff"));
+        toolButton_TurnOff->setMinimumSize(QSize(64, 64));
+        toolButton_TurnOff->setMaximumSize(QSize(64, 64));
+        toolButton_TurnOff->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/ImageButton/image/Button/checl.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_TurnOff->setIcon(icon3);
+        toolButton_TurnOff->setIconSize(QSize(64, 64));
+
+        horizontalLayout->addWidget(toolButton_TurnOff);
+
+        toolButton_Reboot = new QToolButton(layoutWidget_2);
+        toolButton_Reboot->setObjectName(QStringLiteral("toolButton_Reboot"));
+        toolButton_Reboot->setMaximumSize(QSize(64, 64));
+        toolButton_Reboot->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/ImageButton/image/Button/reboot.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_Reboot->setIcon(icon4);
+        toolButton_Reboot->setIconSize(QSize(64, 64));
+
+        horizontalLayout->addWidget(toolButton_Reboot);
+
+        toolButton_2 = new QToolButton(layoutWidget_2);
+        toolButton_2->setObjectName(QStringLiteral("toolButton_2"));
+        toolButton_2->setMaximumSize(QSize(64, 64));
+        toolButton_2->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/ImageButton/image/Button/power.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_2->setIcon(icon5);
+        toolButton_2->setIconSize(QSize(64, 64));
+        toolButton_2->setToolButtonStyle(Qt::ToolButtonIconOnly);
+
+        horizontalLayout->addWidget(toolButton_2);
+
+        layoutWidget->raise();
         listView->raise();
         label_8->raise();
-        groupBox->raise();
-        progressBar->raise();
-        progressBar_2->raise();
-        groupBox_2->raise();
         toolButton->raise();
         layoutWidget->raise();
-        groupBox->raise();
+        layoutWidget_2->raise();
 
         retranslateUi(AdbWidget);
 
@@ -407,12 +404,6 @@ public:
         AdbWidget->setWindowTitle(QApplication::translate("AdbWidget", "Form", 0));
         label_8->setText(QApplication::translate("AdbWidget", "Turn Off iDevice", 0));
         toolButton->setText(QApplication::translate("AdbWidget", "...", 0));
-        toolButton_TurnOff_2->setText(QApplication::translate("AdbWidget", "...", 0));
-        toolButton_TurnOff_3->setText(QApplication::translate("AdbWidget", "...", 0));
-        toolButton_TurnOff_4->setText(QApplication::translate("AdbWidget", "...", 0));
-        toolButton_TurnOff->setText(QApplication::translate("AdbWidget", "...", 0));
-        toolButton_Reboot->setText(QApplication::translate("AdbWidget", "...", 0));
-        toolButton_2->setText(QApplication::translate("AdbWidget", "T\341\272\257t m\303\241y", 0));
         groupBox_2->setTitle(QString());
         label_9->setText(QApplication::translate("AdbWidget", "Model", 0));
         label_10->setText(QApplication::translate("AdbWidget", "Imel 1", 0));
@@ -429,6 +420,12 @@ public:
         label_5->setText(QApplication::translate("AdbWidget", "Android_Version", 0));
         label_6->setText(QApplication::translate("AdbWidget", "Resolution", 0));
         label_7->setText(QApplication::translate("AdbWidget", "ICType", 0));
+        toolButton_TurnOff_2->setText(QApplication::translate("AdbWidget", "...", 0));
+        toolButton_TurnOff_3->setText(QApplication::translate("AdbWidget", "...", 0));
+        toolButton_TurnOff_4->setText(QApplication::translate("AdbWidget", "...", 0));
+        toolButton_TurnOff->setText(QApplication::translate("AdbWidget", "...", 0));
+        toolButton_Reboot->setText(QApplication::translate("AdbWidget", "...", 0));
+        toolButton_2->setText(QApplication::translate("AdbWidget", "T\341\272\257t m\303\241y", 0));
     } // retranslateUi
 
 };

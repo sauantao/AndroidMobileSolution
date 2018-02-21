@@ -55,6 +55,9 @@ public:
         MainWindow->resize(1005, 681);
         MainWindow->setMinimumSize(QSize(1005, 681));
         MainWindow->setMaximumSize(QSize(1005, 681));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/AppIcon/image/Mobile.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalLayout_2 = new QHBoxLayout(centralWidget);
