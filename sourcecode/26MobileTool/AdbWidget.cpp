@@ -43,12 +43,6 @@ AdbWidget::AdbWidget(QTabWidget *parent, MainWindow *window) :
 		ui->progressBar->setStyleSheet(safe);
 	
     pattern = 0;
-
-	//timer = new QTimer(this);
-	//timer->setInterval(1000);
-	//connect(timer,SIGNAL(timeout()), this, SLOT(GetAllInfo()));
-	//connect(timer, SIGNAL(timeout()), this, SLOT(LinkDevices()));
-	//timer->start();
        myProcess = new QProcess(this);
        program =  QDir::currentPath()+QDir::separator()+"adb"+QDir::separator()+"adb.exe";
      //  storagePathLabel = new QLabel(this,Qt::Window); //第二个参数要加，否则会出现设备未连接时打开软件第一个menu不能点到

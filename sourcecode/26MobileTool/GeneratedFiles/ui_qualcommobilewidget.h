@@ -81,11 +81,13 @@ public:
 
         pushButton_Com_Reload = new QPushButton(groupBox);
         pushButton_Com_Reload->setObjectName(QStringLiteral("pushButton_Com_Reload"));
+        pushButton_Com_Reload->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout->addWidget(pushButton_Com_Reload);
 
         pushButton_Com_Connec = new QPushButton(groupBox);
         pushButton_Com_Connec->setObjectName(QStringLiteral("pushButton_Com_Connec"));
+        pushButton_Com_Connec->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout->addWidget(pushButton_Com_Connec);
 

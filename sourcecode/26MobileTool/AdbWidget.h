@@ -20,18 +20,15 @@ class AdbWidget : public TabWidgetBase
 public:
 
 	explicit AdbWidget(QTabWidget  *parent, MainWindow *window);
-
-   ~AdbWidget();
+    ~AdbWidget();
 
 DECLARE_TABWIDGET_VFUNCS()
 
-QString sdk;
+    QString sdk;
 
 private:
     QProcess *t_process;
-
     Ui::AdbWidget *ui;
-
     MainWindow* main_window;
     QString adb_program;
     QString emmcdl_program;
@@ -40,35 +37,34 @@ private:
     void UpdateUI(const QString& text, QColor color = Qt::black);*/
     QProcess *myProcess;
      //QLabel * storagePathLabel;
-       QString program;
-       QString fileNameTemp;
-       QString storagePath;
-      int pattern; //模式 0：单个  1：一键
-	  void getStoragePath();
+    QString program;
+    QString fileNameTemp;
+    QString storagePath;
+    int pattern; 
+    void getStoragePath();
 
 	  
 
 private slots:
 
-      void flashSPL();
-      void flashRecovery();
-      void flashRadio();
-      void bootIMG();
-
+     void flashSPL();
+     void flashRecovery();
+     void flashRadio();
+     void bootIMG();
      void AdbDevices();
      void GpttoRawprogram();
      void on_pushButton_clicked();
      void on_toolButton_2_clicked();
 	 void on_toolButton_Reboot_clicked();
 	 void on_toolButton_TurnOff_clicked();
-
      void on_pushButton_2_clicked();
-    void slot_DeviceTestCallback(const QString &msg, QColor color);
+     void slot_DeviceTestCallback(const QString &msg, QColor color);
+
+
 public slots:
+
     void AdbsetStdout();
     void Adbcommand();
-  
-
     void LinkDevices();
     void GetWifiMac();
     void GetEthernetMac();
@@ -99,8 +95,6 @@ public slots:
 	void GetRegion();
 	void GetProducCode();
 	void GetSwVer();
-
-    
     void FinishSolute(int);
 };
 

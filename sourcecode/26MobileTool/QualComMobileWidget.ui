@@ -58,6 +58,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Com_Reload">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="text">
              <string>Làm Mới</string>
             </property>
@@ -65,6 +71,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Com_Connec">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="text">
              <string>Kết Nối</string>
             </property>
