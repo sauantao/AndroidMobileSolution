@@ -64,7 +64,7 @@ public:
     {
         if (QualComMobileWidget->objectName().isEmpty())
             QualComMobileWidget->setObjectName(QStringLiteral("QualComMobileWidget"));
-        QualComMobileWidget->resize(886, 593);
+        QualComMobileWidget->resize(704, 593);
         horizontalLayout_6 = new QHBoxLayout(QualComMobileWidget);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
         verticalLayout_4 = new QVBoxLayout();

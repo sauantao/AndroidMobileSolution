@@ -32,8 +32,10 @@ class Ui_EmmcRawWidget
 {
 public:
     QTableWidget *tableWidget;
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout_4;
+    QGroupBox *groupBox;
+    QTextEdit *textEdit;
+    QComboBox *comboBox;
+    QPushButton *pushButton;
     QGroupBox *groupBox_2;
     QPushButton *pushButton_4;
     QWidget *layoutWidget;
@@ -69,13 +71,6 @@ public:
     QLineEdit *lineEdit_5;
     QLineEdit *lineEdit_4;
     QComboBox *comboBox_3;
-    QGroupBox *groupBox;
-    QWidget *layoutWidget2;
-    QVBoxLayout *verticalLayout_9;
-    QHBoxLayout *horizontalLayout_5;
-    QComboBox *comboBox;
-    QPushButton *pushButton;
-    QTextEdit *textEdit;
 
     void setupUi(QWidget *EmmcRawWidget)
     {
@@ -98,21 +93,28 @@ public:
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(10, 10, 256, 192));
-        widget = new QWidget(EmmcRawWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(273, 284, 651, 271));
-        horizontalLayout_4 = new QHBoxLayout(widget);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        groupBox_2 = new QGroupBox(widget);
+        tableWidget->setGeometry(QRect(10, 10, 571, 541));
+        groupBox = new QGroupBox(EmmcRawWidget);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setGeometry(QRect(610, 10, 261, 141));
+        textEdit = new QTextEdit(groupBox);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setGeometry(QRect(1, 52, 256, 71));
+        comboBox = new QComboBox(groupBox);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(2, 23, 171, 20));
+        pushButton = new QPushButton(groupBox);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(180, 20, 75, 23));
+        groupBox_2 = new QGroupBox(EmmcRawWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setGeometry(QRect(600, 240, 141, 269));
         pushButton_4 = new QPushButton(groupBox_2);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(230, 240, 75, 23));
+        pushButton_4->setGeometry(QRect(50, 240, 75, 23));
         layoutWidget = new QWidget(groupBox_2);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 20, 311, 211));
+        layoutWidget->setGeometry(QRect(10, 20, 121, 211));
         verticalLayout_4 = new QVBoxLayout(layoutWidget);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -176,17 +178,15 @@ public:
 
         verticalLayout_4->addWidget(comboBox_2);
 
-
-        horizontalLayout_4->addWidget(groupBox_2);
-
-        groupBox_3 = new QGroupBox(widget);
+        groupBox_3 = new QGroupBox(EmmcRawWidget);
         groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        groupBox_3->setGeometry(QRect(750, 240, 171, 269));
         pushButton_8 = new QPushButton(groupBox_3);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        pushButton_8->setGeometry(QRect(220, 240, 75, 23));
+        pushButton_8->setGeometry(QRect(80, 240, 75, 23));
         layoutWidget1 = new QWidget(groupBox_3);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 20, 301, 211));
+        layoutWidget1->setGeometry(QRect(10, 20, 151, 211));
         verticalLayout_8 = new QVBoxLayout(layoutWidget1);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
@@ -266,38 +266,6 @@ public:
         verticalLayout_8->addWidget(comboBox_3);
 
 
-        horizontalLayout_4->addWidget(groupBox_3);
-
-        groupBox = new QGroupBox(EmmcRawWidget);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(273, 11, 649, 267));
-        layoutWidget2 = new QWidget(groupBox);
-        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(0, 20, 258, 225));
-        verticalLayout_9 = new QVBoxLayout(layoutWidget2);
-        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        verticalLayout_9->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        comboBox = new QComboBox(layoutWidget2);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-
-        horizontalLayout_5->addWidget(comboBox);
-
-        pushButton = new QPushButton(layoutWidget2);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        horizontalLayout_5->addWidget(pushButton);
-
-
-        verticalLayout_9->addLayout(horizontalLayout_5);
-
-        textEdit = new QTextEdit(layoutWidget2);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-
-        verticalLayout_9->addWidget(textEdit);
-
-
         retranslateUi(EmmcRawWidget);
 
         QMetaObject::connectSlotsByName(EmmcRawWidget);
@@ -318,6 +286,8 @@ public:
         ___qtablewidgetitem4->setText(QApplication::translate("EmmcRawWidget", "New Column", 0));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
         ___qtablewidgetitem5->setText(QApplication::translate("EmmcRawWidget", "New Column", 0));
+        groupBox->setTitle(QApplication::translate("EmmcRawWidget", "GroupBox", 0));
+        pushButton->setText(QApplication::translate("EmmcRawWidget", "PushButton", 0));
         groupBox_2->setTitle(QApplication::translate("EmmcRawWidget", "GroupBox", 0));
         pushButton_4->setText(QApplication::translate("EmmcRawWidget", "PushButton", 0));
         pushButton_2->setText(QApplication::translate("EmmcRawWidget", "PushButton", 0));
@@ -333,8 +303,6 @@ public:
         checkBox_2->setText(QApplication::translate("EmmcRawWidget", "CheckBox", 0));
         label_3->setText(QApplication::translate("EmmcRawWidget", "TextLabel", 0));
         label_4->setText(QApplication::translate("EmmcRawWidget", "TextLabel", 0));
-        groupBox->setTitle(QApplication::translate("EmmcRawWidget", "GroupBox", 0));
-        pushButton->setText(QApplication::translate("EmmcRawWidget", "PushButton", 0));
     } // retranslateUi
 
 };

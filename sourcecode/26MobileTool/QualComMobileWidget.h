@@ -26,11 +26,14 @@ public:
     explicit QualComMobileWidget(QTabWidget *parent, MainWindow* window);
     ~QualComMobileWidget();
 
-DECLARE_TABWIDGET_VFUNCS()
+     DECLARE_TABWIDGET_VFUNCS()
+    
 
 public slots:
             int updatePortList();
             void connectToPort();
+			void AutoBootUpdateUI();
+
 //void disconnectPort();
 
 
@@ -45,6 +48,7 @@ private:
 private slots:
 void on_pushButton_Com_Connec_clicked();
 void on_pushButton_Com_Reload_clicked();
+void on_pushButton_BootSelect_clicked();
 };
 
 #endif // QUALCOMMOBILEWIDGET_H

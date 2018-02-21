@@ -8,7 +8,7 @@
 #include <tchar.h>
 #include "serialport.h"
 #include "sahara.h"
-
+#include <QFileDialog>
 
 //Only List COM port information for desktop version
 #ifndef ARM
@@ -25,15 +25,19 @@ QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window)
   ui->setupUi(this);
   ui->checkBox_QcOnly->setChecked(true);
   ui->checkBox_AutoBoot->setChecked(true);
+  ui->comboBox_ListCom->addItem("- Select a Port -");
   ui->comboBox_BootSelect->addItem("- Select a Boot -");
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8937 -");
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8936 -");
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8916 -");
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8974 -");
+  ui->comboBox_BootSelect->setHidden(true);
+  ui->pushButton_BootSelect->setHidden(true);
   //updatePortList();
   //foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
      // ui->comboBox_ListCom->addItem(info.portName());
   connect(ui->checkBox_QcOnly, SIGNAL(clicked(bool)), this, SLOT(on_pushButton_Com_Reload_clicked()));
+  connect(ui->checkBox_AutoBoot, SIGNAL(clicked(bool)), this, SLOT(AutoBootUpdateUI()));
 }
 QualComMobileWidget::~QualComMobileWidget()
 {
@@ -100,12 +104,10 @@ int QualComMobileWidget::updatePortList()
 			DeviceInfoData.cbSize = sizeof(SP_DEVINFO_DATA);
 
 			wchar_t *Htcom;
-			if (ui->checkBox_QcOnly->isChecked())
-			{
+			if (ui->checkBox_QcOnly->isChecked()){
 				Htcom = L"QDLoader 9008";
 			}
-			else
-			{
+			else{
 				Htcom = L"";
 			}
 
@@ -190,11 +192,6 @@ int QualComMobileWidget::updatePortList()
 			}
 		}
 		//SetupDiDestroyDeviceInfoList(hDevInfo);
-		ui->comboBox_ListCom->addItem("- Select a Port -");
-		//ui->comboBox_QcBootSelect->addItem("D:\\26-MOBILE\\CPP\\emmcdl\\Release\\prog_emmc_firehose_8937_ddr_vo_y66.mbn");
-		//ui->comboBox_QcBootSelect->addItem("D:\\26-MOBILE\\CPP\\emmcdl\\Release\\prog_emmc_firehose_8937_ddr_vo_y66.mbn");
-		//ui->comboBox_QcBootSelect->addItem("D:\\26-MOBILE\\CPP\\emmcdl\\Release\\prog_emmc_firehose_8937_ddr_vo_y66.mbn");
-		//ui->comboBox_QcBootSelect->addItem("- Select Boot -");
 	}
 #endif //ARM
 	return ERROR_SUCCESS;
@@ -264,3 +261,27 @@ void QualComMobileWidget::on_pushButton_Com_Reload_clicked()
 	ui->comboBox_ListCom->clear();
 	updatePortList();
 }
+void QualComMobileWidget::on_pushButton_BootSelect_clicked()
+{
+	QString quacomboot = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file boot"), "d:\\", "*.mbn");
+	ui->comboBox_BootSelect->clear();
+	ui->comboBox_BootSelect->addItem(quacomboot);
+}
+void QualComMobileWidget::AutoBootUpdateUI()
+{
+	if (ui->checkBox_AutoBoot->isChecked())
+	{
+		//ui->comboBox_BootSelect->setHidden(true);
+		//ui->pushButton_BootSelect->setHidden(true);
+
+		ui->comboBox_BootSelect->setHidden(true);
+		ui->pushButton_BootSelect->setHidden(true);
+	}
+	else
+	{
+		ui->comboBox_BootSelect->setHidden(false);
+		ui->pushButton_BootSelect->setHidden(false);
+	}
+
+}
+

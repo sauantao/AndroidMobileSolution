@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>886</width>
+    <width>704</width>
     <height>593</height>
    </rect>
   </property>
@@ -195,7 +195,7 @@
              <string>Tắt máy</string>
             </property>
             <property name="icon">
-             <iconset resource="emmcdlGui.qrc">
+             <iconset resource="26MobileTool.qrc">
               <normaloff>:/ImageButton/image/Button/power.png</normaloff>:/ImageButton/image/Button/power.png</iconset>
             </property>
             <property name="iconSize">
@@ -230,7 +230,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="emmcdlGui.qrc">
+             <iconset resource="26MobileTool.qrc">
               <normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</iconset>
             </property>
             <property name="iconSize">
@@ -262,7 +262,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="emmcdlGui.qrc">
+             <iconset resource="26MobileTool.qrc">
               <normaloff>:/ImageButton/image/Button/if_button-cross_red_69065.png</normaloff>:/ImageButton/image/Button/if_button-cross_red_69065.png</iconset>
             </property>
             <property name="iconSize">
@@ -294,7 +294,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="emmcdlGui.qrc">
+             <iconset resource="26MobileTool.qrc">
               <normaloff>:/ImageButton/image/Button/checl.png</normaloff>:/ImageButton/image/Button/checl.png</iconset>
             </property>
             <property name="iconSize">
@@ -320,7 +320,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="emmcdlGui.qrc">
+             <iconset resource="26MobileTool.qrc">
               <normaloff>:/ImageButton/image/Button/reboot.png</normaloff>:/ImageButton/image/Button/reboot.png</iconset>
             </property>
             <property name="iconSize">
@@ -352,7 +352,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="emmcdlGui.qrc">
+             <iconset resource="26MobileTool.qrc">
               <normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</iconset>
             </property>
             <property name="iconSize">
@@ -373,7 +373,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="emmcdlGui.qrc"/>
+  <include location="26MobileTool.qrc"/>
  </resources>
  <connections/>
 </ui>
