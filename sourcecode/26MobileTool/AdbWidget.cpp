@@ -45,19 +45,18 @@ AdbWidget::AdbWidget(QTabWidget *parent, MainWindow *window) :
     pattern = 0;
        myProcess = new QProcess(this);
        program =  QDir::currentPath()+QDir::separator()+"adb"+QDir::separator()+"adb.exe";
-     //  storagePathLabel = new QLabel(this,Qt::Window); //第二个参数要加，否则会出现设备未连接时打开软件第一个menu不能点到
+    
 
-   // connect(main_window_, SIGNAL(signal_DeviceTestCallback()),this, SLOT(slot_DeviceTestCallback(const QString &,QColor)));
+
     t_process = new QProcess(this);
     emmcdl_program =  QDir::currentPath()+QDir::separator()+"Data"+QDir::separator()+"adb"+QDir::separator()+"emmcdl.exe";
     adb_program =  QDir::currentPath()+QDir::separator()+"Data"+QDir::separator()+"adb"+QDir::separator()+"adb.exe";
     folder_program =  QDir::currentPath()+QDir::separator()+"Data"+QDir::separator()+"adb"+QDir::separator();
-   // connect(t_process, SIGNAL(readyReadStandardOutput()), this, SLOT(AdbsetStdout()) );
-   // connect(ui->AdblineEdit, SIGNAL(returnPressed()), this, SLOT(Adbcommand()) );
-    // ui->AdbtextEdit->append(emmcdl_program);
-    // ui->AdbtextEdit->append(adb_program);
+
+   
+    
 	
-    //getStoragePath();
+    
 	
 
        // connect(ui->Link_Devices,SIGNAL(triggered(bool)),this,SLOT(Link_Devices));
