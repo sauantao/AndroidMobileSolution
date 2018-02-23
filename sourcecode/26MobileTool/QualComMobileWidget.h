@@ -30,25 +30,23 @@ public:
     
 
 public slots:
-            int updatePortList();
-            void connectToPort();
-			void AutoBootUpdateUI();
 
-//void disconnectPort();
-
+     int updatePortList();
+	 void AutoBootUpdateUI();
 
 private:
+
     Ui::QualComMobileWidget* ui;
     MainWindow* main_window;
-
-
-    void log(int type, const char* message);
+	   
+	void log(int type, const char* message);
     void log(int type, std::string message);
     void log(int type, QString message);
 private slots:
-void on_pushButton_Com_Connec_clicked();
-void on_pushButton_Com_Reload_clicked();
-void on_pushButton_BootSelect_clicked();
+
+	void on_pushButton_Com_Connec_clicked();
+	void on_pushButton_Com_Reload_clicked();
+	void on_pushButton_BootSelect_clicked();
 };
 
 #endif // QUALCOMMOBILEWIDGET_H

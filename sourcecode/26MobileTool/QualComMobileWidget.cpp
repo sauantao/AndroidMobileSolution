@@ -57,10 +57,7 @@ void QualComMobileWidget::UpdateUI()
 {
     ui->retranslateUi(this);
 }
-//void AdbWidget::UpdateUI(const QString& text, QColor color = Qt::black)
-//{
 
-//}
 
 void QualComMobileWidget::SetTabLabel(QTabWidget *tab_widget, int index)
 {
@@ -75,7 +72,6 @@ void QualComMobileWidget::SetShortCut(int , const QString &)
 }
 int QualComMobileWidget::updatePortList()
 {
-	///////////////////////////////////////////////////////////////////////
 	//HANDLE vHandle;
 	//TCHAR VolumeName[MAX_PATH + 1];
 	//BOOL bValid = true;
@@ -197,17 +193,6 @@ int QualComMobileWidget::updatePortList()
 	return ERROR_SUCCESS;
 }
 
-
-void QualComMobileWidget::connectToPort()
-{
-
- log(kLogTypeWarning,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
- log(kLogTypeInfo,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
- log(kLogTypeWarning,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
- log(kLogTypeInfo,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-
-
-}
 void QualComMobileWidget::log(int type, const char* message) {
     QString tmp = "gray";
 
