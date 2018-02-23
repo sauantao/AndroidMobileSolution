@@ -33,9 +33,11 @@ QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window)
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8974 -");
   ui->comboBox_BootSelect->setHidden(true);
   ui->pushButton_BootSelect->setHidden(true);
-  //updatePortList();
-  //foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
+
+
+     //foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
      // ui->comboBox_ListCom->addItem(info.portName());
+
   connect(ui->checkBox_QcOnly, SIGNAL(clicked(bool)), this, SLOT(on_pushButton_Com_Reload_clicked()));
   connect(ui->checkBox_AutoBoot, SIGNAL(clicked(bool)), this, SLOT(AutoBootUpdateUI()));
 }
