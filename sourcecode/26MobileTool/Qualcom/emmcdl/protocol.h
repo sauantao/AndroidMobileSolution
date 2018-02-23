@@ -23,14 +23,11 @@ when       who     what, where, why
 
 #include "partition.h"
 #include <windows.h>
-#include <QRunnable>
+
 #define MAX_XML_LEN         2048
 #define MAX_TRANSFER_SIZE   0x100000
 
-class Protocol 
-{
-
-
+class Protocol {
 public:
   //int ConnectToFlashProg(fh_configure_t *cfg);
   //int CreateGPP(DWORD dwGPP1, DWORD dwGPP2, DWORD dwGPP3, DWORD dwGPP4);
@@ -76,5 +73,6 @@ protected:
 private:
 
   bool bVerbose;
+
 
 };

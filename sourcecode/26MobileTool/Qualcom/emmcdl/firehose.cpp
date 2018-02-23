@@ -212,7 +212,6 @@ int Firehose::DeviceReset()
 	return status;
 }
 
-
 int Firehose::ReadStatus(void)
 {
   // Make sure we read an ACK back

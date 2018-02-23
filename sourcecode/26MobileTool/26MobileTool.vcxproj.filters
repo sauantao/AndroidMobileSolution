@@ -33,39 +33,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="crc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="dload.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="emmcdl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ffu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="firehose.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="partition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="protocol.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sahara.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="serialport.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sparse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="xmlparser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MyThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,9 +41,6 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_MyThread.cpp">
       <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="diskwriter.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_MainWindow.cpp">
       <Filter>Generated Files</Filter>
@@ -162,12 +126,45 @@
     <ClCompile Include="GeneratedFiles\qrc_26MobileTool.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\crc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\diskwriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\dload.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\emmcdl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\ffu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\firehose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\partition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\protocol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\sahara.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\serialport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\sparse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qualcom\emmcdl\xmlparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MyThread.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="protocol.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="MainWindow.h">
@@ -220,45 +217,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="crc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dload.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="emmcdl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ffu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="firehose.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="partition.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="qcversion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sahara.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="serialport.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sparse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="xmlparser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="diskwriter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -284,6 +242,48 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="xfstk-dldr-api\xfstk-dldr-api_global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\crc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\diskwriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\dload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\emmcdl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\ffu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\firehose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\partition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\protocol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\qcversion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\sahara.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\serialport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\sparse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qualcom\emmcdl\xmlparser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
