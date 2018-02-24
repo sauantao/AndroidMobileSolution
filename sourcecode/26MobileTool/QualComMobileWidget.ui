@@ -13,9 +13,68 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_6">
+  <layout class="QHBoxLayout" name="horizontalLayout_8">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
+    <layout class="QVBoxLayout" name="verticalLayout_8">
+     <item>
+      <widget class="QGroupBox" name="groupBox_Option">
+       <property name="title">
+        <string>Option</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QRadioButton" name="radioButton_ReadInfo">
+            <property name="text">
+             <string>InFo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_Flash">
+            <property name="text">
+             <string>Flash</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_FormatErase">
+            <property name="text">
+             <string>Format/Erase</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_Readback">
+            <property name="text">
+             <string>Readback</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QCheckBox" name="checkBox_QcOnly">
+            <property name="text">
+             <string>Chỉ hiển thị kết nối qualcom</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_AutoBoot">
+            <property name="text">
+             <string>Tự động chọn boot</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="font">
@@ -35,7 +94,7 @@
            <widget class="QComboBox" name="comboBox_ListCom">
             <property name="minimumSize">
              <size>
-              <width>500</width>
+              <width>400</width>
               <height>0</height>
              </size>
             </property>
@@ -48,6 +107,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Com_Reload">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -61,6 +126,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Com_Connec">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -74,35 +145,11 @@
           </item>
          </layout>
         </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="checkBox_QcOnly">
-            <property name="text">
-             <string>Chỉ hiển thị kết nối qualcom</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
        </layout>
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="groupBox_2">
+      <widget class="QGroupBox" name="groupBox_BootSelect">
        <property name="title">
         <string>Chọn boot</string>
        </property>
@@ -134,27 +181,63 @@
           </item>
          </layout>
         </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_RomSelect">
+       <property name="title">
+        <string>Flash </string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QLineEdit" name="lineEdit_FolderRom"/>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_RawProgramXml"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_PatchXml"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QCheckBox" name="checkBox_AutoBoot">
-            <property name="text">
-             <string>Tự động chọn boot</string>
-            </property>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QPushButton" name="pushButton_RomBootFolder">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Chọn file</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_RawXmlPatchXml">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Chọn file</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>

@@ -18,9 +18,10 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -30,25 +31,40 @@ QT_BEGIN_NAMESPACE
 class Ui_QualComMobileWidget
 {
 public:
-    QHBoxLayout *horizontalLayout_6;
-    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_8;
+    QVBoxLayout *verticalLayout_8;
+    QGroupBox *groupBox_Option;
+    QHBoxLayout *horizontalLayout_4;
+    QHBoxLayout *horizontalLayout_2;
+    QRadioButton *radioButton_ReadInfo;
+    QRadioButton *radioButton_Flash;
+    QRadioButton *radioButton_FormatErase;
+    QRadioButton *radioButton_Readback;
+    QVBoxLayout *verticalLayout_7;
+    QCheckBox *checkBox_QcOnly;
+    QCheckBox *checkBox_AutoBoot;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QComboBox *comboBox_ListCom;
     QPushButton *pushButton_Com_Reload;
     QPushButton *pushButton_Com_Connec;
-    QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer;
-    QCheckBox *checkBox_QcOnly;
-    QGroupBox *groupBox_2;
+    QGroupBox *groupBox_BootSelect;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_3;
     QComboBox *comboBox_BootSelect;
     QPushButton *pushButton_BootSelect;
-    QHBoxLayout *horizontalLayout_4;
-    QSpacerItem *horizontalSpacer_2;
-    QCheckBox *checkBox_AutoBoot;
+    QGroupBox *groupBox_RomSelect;
+    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout_7;
+    QVBoxLayout *verticalLayout_5;
+    QLineEdit *lineEdit_FolderRom;
+    QHBoxLayout *horizontalLayout_6;
+    QLineEdit *lineEdit_RawProgramXml;
+    QLineEdit *lineEdit_PatchXml;
+    QVBoxLayout *verticalLayout_4;
+    QPushButton *pushButton_RomBootFolder;
+    QPushButton *pushButton_RawXmlPatchXml;
     QPlainTextEdit *plainTextEdit;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_3;
@@ -65,10 +81,57 @@ public:
         if (QualComMobileWidget->objectName().isEmpty())
             QualComMobileWidget->setObjectName(QStringLiteral("QualComMobileWidget"));
         QualComMobileWidget->resize(704, 593);
-        horizontalLayout_6 = new QHBoxLayout(QualComMobileWidget);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        horizontalLayout_8 = new QHBoxLayout(QualComMobileWidget);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        groupBox_Option = new QGroupBox(QualComMobileWidget);
+        groupBox_Option->setObjectName(QStringLiteral("groupBox_Option"));
+        horizontalLayout_4 = new QHBoxLayout(groupBox_Option);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        radioButton_ReadInfo = new QRadioButton(groupBox_Option);
+        radioButton_ReadInfo->setObjectName(QStringLiteral("radioButton_ReadInfo"));
+
+        horizontalLayout_2->addWidget(radioButton_ReadInfo);
+
+        radioButton_Flash = new QRadioButton(groupBox_Option);
+        radioButton_Flash->setObjectName(QStringLiteral("radioButton_Flash"));
+
+        horizontalLayout_2->addWidget(radioButton_Flash);
+
+        radioButton_FormatErase = new QRadioButton(groupBox_Option);
+        radioButton_FormatErase->setObjectName(QStringLiteral("radioButton_FormatErase"));
+
+        horizontalLayout_2->addWidget(radioButton_FormatErase);
+
+        radioButton_Readback = new QRadioButton(groupBox_Option);
+        radioButton_Readback->setObjectName(QStringLiteral("radioButton_Readback"));
+
+        horizontalLayout_2->addWidget(radioButton_Readback);
+
+
+        horizontalLayout_4->addLayout(horizontalLayout_2);
+
+        verticalLayout_7 = new QVBoxLayout();
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        checkBox_QcOnly = new QCheckBox(groupBox_Option);
+        checkBox_QcOnly->setObjectName(QStringLiteral("checkBox_QcOnly"));
+
+        verticalLayout_7->addWidget(checkBox_QcOnly);
+
+        checkBox_AutoBoot = new QCheckBox(groupBox_Option);
+        checkBox_AutoBoot->setObjectName(QStringLiteral("checkBox_AutoBoot"));
+
+        verticalLayout_7->addWidget(checkBox_AutoBoot);
+
+
+        horizontalLayout_4->addLayout(verticalLayout_7);
+
+
+        verticalLayout_8->addWidget(groupBox_Option);
+
         groupBox = new QGroupBox(QualComMobileWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         QFont font;
@@ -82,7 +145,7 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         comboBox_ListCom = new QComboBox(groupBox);
         comboBox_ListCom->setObjectName(QStringLiteral("comboBox_ListCom"));
-        comboBox_ListCom->setMinimumSize(QSize(500, 0));
+        comboBox_ListCom->setMinimumSize(QSize(400, 0));
         QFont font1;
         font1.setFamily(QStringLiteral("Consolas"));
         comboBox_ListCom->setFont(font1);
@@ -91,12 +154,14 @@ public:
 
         pushButton_Com_Reload = new QPushButton(groupBox);
         pushButton_Com_Reload->setObjectName(QStringLiteral("pushButton_Com_Reload"));
+        pushButton_Com_Reload->setMinimumSize(QSize(100, 0));
         pushButton_Com_Reload->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout->addWidget(pushButton_Com_Reload);
 
         pushButton_Com_Connec = new QPushButton(groupBox);
         pushButton_Com_Connec->setObjectName(QStringLiteral("pushButton_Com_Connec"));
+        pushButton_Com_Connec->setMinimumSize(QSize(100, 0));
         pushButton_Com_Connec->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout->addWidget(pushButton_Com_Connec);
@@ -104,30 +169,16 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_2->addItem(horizontalSpacer);
+        verticalLayout_8->addWidget(groupBox);
 
-        checkBox_QcOnly = new QCheckBox(groupBox);
-        checkBox_QcOnly->setObjectName(QStringLiteral("checkBox_QcOnly"));
-
-        horizontalLayout_2->addWidget(checkBox_QcOnly);
-
-
-        verticalLayout->addLayout(horizontalLayout_2);
-
-
-        verticalLayout_4->addWidget(groupBox);
-
-        groupBox_2 = new QGroupBox(QualComMobileWidget);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        verticalLayout_2 = new QVBoxLayout(groupBox_2);
+        groupBox_BootSelect = new QGroupBox(QualComMobileWidget);
+        groupBox_BootSelect->setObjectName(QStringLiteral("groupBox_BootSelect"));
+        verticalLayout_2 = new QVBoxLayout(groupBox_BootSelect);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        comboBox_BootSelect = new QComboBox(groupBox_2);
+        comboBox_BootSelect = new QComboBox(groupBox_BootSelect);
         comboBox_BootSelect->setObjectName(QStringLiteral("comboBox_BootSelect"));
         QFont font2;
         font2.setFamily(QStringLiteral("Consolas"));
@@ -136,7 +187,7 @@ public:
 
         horizontalLayout_3->addWidget(comboBox_BootSelect);
 
-        pushButton_BootSelect = new QPushButton(groupBox_2);
+        pushButton_BootSelect = new QPushButton(groupBox_BootSelect);
         pushButton_BootSelect->setObjectName(QStringLiteral("pushButton_BootSelect"));
         pushButton_BootSelect->setMaximumSize(QSize(100, 16777215));
 
@@ -145,28 +196,68 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_3);
 
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_4->addItem(horizontalSpacer_2);
+        verticalLayout_8->addWidget(groupBox_BootSelect);
 
-        checkBox_AutoBoot = new QCheckBox(groupBox_2);
-        checkBox_AutoBoot->setObjectName(QStringLiteral("checkBox_AutoBoot"));
+        groupBox_RomSelect = new QGroupBox(QualComMobileWidget);
+        groupBox_RomSelect->setObjectName(QStringLiteral("groupBox_RomSelect"));
+        verticalLayout_6 = new QVBoxLayout(groupBox_RomSelect);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        lineEdit_FolderRom = new QLineEdit(groupBox_RomSelect);
+        lineEdit_FolderRom->setObjectName(QStringLiteral("lineEdit_FolderRom"));
 
-        horizontalLayout_4->addWidget(checkBox_AutoBoot);
+        verticalLayout_5->addWidget(lineEdit_FolderRom);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        lineEdit_RawProgramXml = new QLineEdit(groupBox_RomSelect);
+        lineEdit_RawProgramXml->setObjectName(QStringLiteral("lineEdit_RawProgramXml"));
+
+        horizontalLayout_6->addWidget(lineEdit_RawProgramXml);
+
+        lineEdit_PatchXml = new QLineEdit(groupBox_RomSelect);
+        lineEdit_PatchXml->setObjectName(QStringLiteral("lineEdit_PatchXml"));
+
+        horizontalLayout_6->addWidget(lineEdit_PatchXml);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_4);
+        verticalLayout_5->addLayout(horizontalLayout_6);
 
 
-        verticalLayout_4->addWidget(groupBox_2);
+        horizontalLayout_7->addLayout(verticalLayout_5);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        pushButton_RomBootFolder = new QPushButton(groupBox_RomSelect);
+        pushButton_RomBootFolder->setObjectName(QStringLiteral("pushButton_RomBootFolder"));
+        pushButton_RomBootFolder->setMinimumSize(QSize(100, 0));
+
+        verticalLayout_4->addWidget(pushButton_RomBootFolder);
+
+        pushButton_RawXmlPatchXml = new QPushButton(groupBox_RomSelect);
+        pushButton_RawXmlPatchXml->setObjectName(QStringLiteral("pushButton_RawXmlPatchXml"));
+        pushButton_RawXmlPatchXml->setMinimumSize(QSize(100, 0));
+
+        verticalLayout_4->addWidget(pushButton_RawXmlPatchXml);
+
+
+        horizontalLayout_7->addLayout(verticalLayout_4);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_7);
+
+
+        verticalLayout_8->addWidget(groupBox_RomSelect);
 
         plainTextEdit = new QPlainTextEdit(QualComMobileWidget);
         plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
         plainTextEdit->setFont(font);
 
-        verticalLayout_4->addWidget(plainTextEdit);
+        verticalLayout_8->addWidget(plainTextEdit);
 
         groupBox_3 = new QGroupBox(QualComMobileWidget);
         groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
@@ -249,10 +340,10 @@ public:
         verticalLayout_3->addLayout(horizontalLayout_5);
 
 
-        verticalLayout_4->addWidget(groupBox_3);
+        verticalLayout_8->addWidget(groupBox_3);
 
 
-        horizontalLayout_6->addLayout(verticalLayout_4);
+        horizontalLayout_8->addLayout(verticalLayout_8);
 
 
         retranslateUi(QualComMobileWidget);
@@ -263,13 +354,21 @@ public:
     void retranslateUi(QWidget *QualComMobileWidget)
     {
         QualComMobileWidget->setWindowTitle(QApplication::translate("QualComMobileWidget", "Form", 0));
+        groupBox_Option->setTitle(QApplication::translate("QualComMobileWidget", "Option", 0));
+        radioButton_ReadInfo->setText(QApplication::translate("QualComMobileWidget", "InFo", 0));
+        radioButton_Flash->setText(QApplication::translate("QualComMobileWidget", "Flash", 0));
+        radioButton_FormatErase->setText(QApplication::translate("QualComMobileWidget", "Format/Erase", 0));
+        radioButton_Readback->setText(QApplication::translate("QualComMobileWidget", "Readback", 0));
+        checkBox_QcOnly->setText(QApplication::translate("QualComMobileWidget", "Ch\341\273\211 hi\341\273\203n th\341\273\213 k\341\272\277t n\341\273\221i qualcom", 0));
+        checkBox_AutoBoot->setText(QApplication::translate("QualComMobileWidget", "T\341\273\261 \304\221\341\273\231ng ch\341\273\215n boot", 0));
         groupBox->setTitle(QApplication::translate("QualComMobileWidget", "Ch\341\273\215n COM", 0));
         pushButton_Com_Reload->setText(QApplication::translate("QualComMobileWidget", "L\303\240m M\341\273\233i", 0));
         pushButton_Com_Connec->setText(QApplication::translate("QualComMobileWidget", "K\341\272\277t N\341\273\221i", 0));
-        checkBox_QcOnly->setText(QApplication::translate("QualComMobileWidget", "Ch\341\273\211 hi\341\273\203n th\341\273\213 k\341\272\277t n\341\273\221i qualcom", 0));
-        groupBox_2->setTitle(QApplication::translate("QualComMobileWidget", "Ch\341\273\215n boot", 0));
+        groupBox_BootSelect->setTitle(QApplication::translate("QualComMobileWidget", "Ch\341\273\215n boot", 0));
         pushButton_BootSelect->setText(QApplication::translate("QualComMobileWidget", "Ch\341\273\215n file", 0));
-        checkBox_AutoBoot->setText(QApplication::translate("QualComMobileWidget", "T\341\273\261 \304\221\341\273\231ng ch\341\273\215n boot", 0));
+        groupBox_RomSelect->setTitle(QApplication::translate("QualComMobileWidget", "Flash ", 0));
+        pushButton_RomBootFolder->setText(QApplication::translate("QualComMobileWidget", "Ch\341\273\215n file", 0));
+        pushButton_RawXmlPatchXml->setText(QApplication::translate("QualComMobileWidget", "Ch\341\273\215n file", 0));
         groupBox_3->setTitle(QString());
         toolButton_2->setText(QApplication::translate("QualComMobileWidget", "T\341\272\257t m\303\241y", 0));
         toolButton_TurnOff_4->setText(QApplication::translate("QualComMobileWidget", "...", 0));

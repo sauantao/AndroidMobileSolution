@@ -31,8 +31,11 @@ QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window)
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8936 -");
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8916 -");
   ui->comboBox_BootSelect->addItem("- Select a Boot MSM8974 -");
+  ui->groupBox_BootSelect->setHidden(true);
   ui->comboBox_BootSelect->setHidden(true);
   ui->pushButton_BootSelect->setHidden(true);
+  ui->groupBox_RomSelect->setHidden(true);
+  ui->radioButton_ReadInfo->setChecked(true);
 
 
      //foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
@@ -40,6 +43,8 @@ QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window)
 
   connect(ui->checkBox_QcOnly, SIGNAL(clicked(bool)), this, SLOT(on_pushButton_Com_Reload_clicked()));
   connect(ui->checkBox_AutoBoot, SIGNAL(clicked(bool)), this, SLOT(AutoBootUpdateUI()));
+  connect(ui->radioButton_Flash, SIGNAL(clicked(bool)), this, SLOT(FlashUpdateUI()));
+  connect(ui->radioButton_ReadInfo, SIGNAL(clicked(bool)), this, SLOT(ReadInfoUpdateUI()));
 }
 QualComMobileWidget::~QualComMobileWidget()
 {
@@ -74,25 +79,13 @@ void QualComMobileWidget::SetShortCut(int , const QString &)
 }
 int QualComMobileWidget::updatePortList()
 {
-	//HANDLE vHandle;
-	//TCHAR VolumeName[MAX_PATH + 1];
-	//BOOL bValid = true;
-	//int i = 0;
 #ifndef ARM
 	HDEVINFO hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_COMPORT, NULL, NULL, DIGCF_DEVICEINTERFACE | DIGCF_PRESENT);
 	DEVPROPTYPE ulPropertyType = DEVPROP_TYPE_STRING;
 	DWORD dwSize;
 #endif //ARM
-
-	/*if (disks == NULL || volumes == NULL) {
-	return ERROR_INVALID_PARAMETER;
-	}*/
-
-	// wprintf(L"\tFinding all devices in emergency download mode...\n");
 	ui->plainTextEdit->clear();
 	log(kLogTypeInfo, QString::fromUtf8("  Đang tìm kiếm thiết bị QualCom  ...\n"));
-
-	// wprintf(L"\tTim kiem tat ca cac thiet bi o che do 9008 ...\n\n");
 #ifndef ARM
 	if (hDevInfo != INVALID_HANDLE_VALUE) {
 		// Successfully got a list of ports
@@ -118,33 +111,16 @@ int QualComMobileWidget::updatePortList()
 			if (SetupDiGetDeviceProperty(hDevInfo, &DeviceInfoData, &DEVPKEY_Device_FriendlyName, &ulPropertyType, (BYTE*)szBuffer, sizeof(szBuffer), &dwSize, 0)) {
 
 				if ((GetLastError() == ERROR_SUCCESS) && wcsstr(szBuffer, Htcom) != NULL) {
-					// wprintf(_T("\t>>"));
-					// log(kLogTypeInfo, "Tim kiem tat ca cac thiet bi o che do 9008 ...\n");
-
-
-
-					//log(kLogTypeInfo, QString::toLocal8Bit(szBuffer));
-					//wide char array
 					log(kLogTypeInfo, QString::fromUtf8("  Đã tìm thấy thiết bị ...\n"));
-
 					//convert from wide char to narrow char array
 					char ch[512];
 					char DefChar = ' ';
 					WideCharToMultiByte(CP_ACP, 0, szBuffer, -1, ch, 512, &DefChar, NULL);
-
 					//A std:string  using the char* constructor.
 					std::string ss(ch);
 					QString qstr = QString::fromStdString(ss);
-
 					log(kLogTypeError, "  " + qstr);
-					//main_window->ui->
-
 					ui->comboBox_ListCom->addItem(qstr);
-
-					// wprintf(szBuffer);
-					// Get the serial number and display it if verbose is enabled
-					/*if (verbose)
-					{*/
 					WCHAR *port = wcsstr(szBuffer, L"COM");
 					if (port != NULL) {
 						SerialPort spTemp;
@@ -157,39 +133,25 @@ int QualComMobileWidget::updatePortList()
 							char ch[512];
 							char DefChar = ' ';
 							WideCharToMultiByte(CP_ACP, 0, port, -1, ch, 512, &DefChar, NULL);
-
 							//A std:string  using the char* constructor.
 							std::string ss(ch);
 							QString qstr = QString::fromStdString(ss);
-
 							log(kLogTypeError, QString::fromUtf8("  Đã kết nối với cổng :   ") + qstr);
-
 							QString msg;
 							log(kLogTypeInfo, msg.sprintf("  SERIAL=0x%x  :  HW_ID=0x%x   ", pbl_info.serial, pbl_info.msm_id));
-							if (pbl_info.msm_id == 0x560e1)
-							{
+
+							if (pbl_info.msm_id == 0x560e1){
 								log(kLogTypeError, QString::fromUtf8("  Tên Chíp : MSM8937 "));
-								// ui->lineEdit_FireHose->setText("firehose_MSM8937.mbn");
-								//ui->comboBox_QcBootSelect->addItem("D:\\26-MOBILE\\CPP\\emmcdl\\Release\\prog_emmc_firehose_8937.mbn");
 							}
-							else
-							{
+							else{
 								log(kLogTypeError, QString::fromUtf8("  Tên Chíp : chua xac nhan "));
-								//ui->lineEdit_FireHose->setText("firehose_chuaxacnhan.mbn");
-								//ui->comboBox_QcBootSelect->addItem("firehose_chuaxacnhan.mbn");
 							}
 						}
 					}
-
-
-					 //}
-					// wprintf(_T("\n\n"));
 					log(kLogTypeInfo, "\n\n");
 				}
-
 			}
 		}
-		//SetupDiDestroyDeviceInfoList(hDevInfo);
 	}
 #endif //ARM
 	return ERROR_SUCCESS;
@@ -256,19 +218,27 @@ void QualComMobileWidget::on_pushButton_BootSelect_clicked()
 }
 void QualComMobileWidget::AutoBootUpdateUI()
 {
-	if (ui->checkBox_AutoBoot->isChecked())
-	{
-		//ui->comboBox_BootSelect->setHidden(true);
-		//ui->pushButton_BootSelect->setHidden(true);
+	if (ui->checkBox_AutoBoot->isChecked()){
 
+		ui->groupBox_BootSelect->setHidden(true);
 		ui->comboBox_BootSelect->setHidden(true);
 		ui->pushButton_BootSelect->setHidden(true);
 	}
-	else
-	{
+	else{
+
+		ui->groupBox_BootSelect->setHidden(false);
 		ui->comboBox_BootSelect->setHidden(false);
 		ui->pushButton_BootSelect->setHidden(false);
 	}
 
+}
+void QualComMobileWidget::ReadInfoUpdateUI()
+{
+	ui->groupBox_RomSelect->setHidden(true);
+}
+void QualComMobileWidget::FlashUpdateUI()
+{
+
+	ui->groupBox_RomSelect->setHidden(false);
 }
 

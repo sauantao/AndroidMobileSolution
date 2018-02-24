@@ -33,6 +33,8 @@ public slots:
 
      int updatePortList();
 	 void AutoBootUpdateUI();
+	 void ReadInfoUpdateUI();
+	 void FlashUpdateUI();
 
 private:
 
