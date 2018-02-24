@@ -5,10 +5,17 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
-#include <tchar.h>
+//#include "tchar.h"
 #include "serialport.h"
 #include "sahara.h"
+#include "protocol.h"
+#include "dload.h"
+#include "firehose.h"
+#include "targetver.h"
+#include "diskwriter.h"
+#include "partition.h"
 #include <QFileDialog>
+#include <winerror.h>
 
 //Only List COM port information for desktop version
 #ifndef ARM
@@ -16,6 +23,11 @@
 #define INITGUID 1    // This is needed to properly define the GUID's in devpkey.h
 #include "devpkey.h"
 #endif //ARM
+
+using namespace std;
+static SerialPort m_port;
+static int m_chipset = 8974;
+static int m_protocol = FIREHOSE_PROTOCOL;
 
 QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window) :
     TabWidgetBase(3, tr("&Qualcom Widget"), parent),
@@ -201,20 +213,33 @@ void QualComMobileWidget::log(int type, QString message)
 
 void QualComMobileWidget::on_pushButton_Com_Connec_clicked()
 {
+	int dnum = 20;
 	ui->comboBox_ListCom->clear();
 	updatePortList();
+	m_port.Open(dnum);
+	ui->pushButton_Com_Connec->setEnabled(false);
+	//ui->toolButton_stop->setEnabled(true);
 
 }
 void QualComMobileWidget::on_pushButton_Com_Reload_clicked()
 {
 	ui->comboBox_ListCom->clear();
 	updatePortList();
+	ui->pushButton_Com_Connec->setEnabled(true);
 }
 void QualComMobileWidget::on_pushButton_BootSelect_clicked()
 {
 	QString quacomboot = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file boot"), "d:\\", "*.mbn");
 	ui->comboBox_BootSelect->clear();
 	ui->comboBox_BootSelect->addItem(quacomboot);
+}
+void QualComMobileWidget::on_pushButton_RomBootFolder_clicked()
+{
+
+}
+void QualComMobileWidget::on_pushButton_RawXmlPatchXml_clicked()
+{
+
 }
 void QualComMobileWidget::AutoBootUpdateUI()
 {
@@ -241,4 +266,120 @@ void QualComMobileWidget::FlashUpdateUI()
 
 	ui->groupBox_RomSelect->setHidden(false);
 }
+//void QualComMobileWidget::StringToByte(TCHAR **szSerialData, BYTE *data, int len)
+//{
+//	/*for (int i = 0; i < len; i++) {
+//		TCHAR *hex = szSerialData[i];
+//		if (wcsncmp(hex, L"0x", 2) == 0) {
+//			BYTE val1 = (BYTE)(hex[2] - '0');
+//			BYTE val2 = (BYTE)(hex[3] - '0');
+//			if (val1 > 9) val1 = val1 - 7;
+//			if (val2 > 9) val2 = val2 - 7;
+//			data[i] = (val1 << 4) + val2;
+//		}
+//		else {
+//			data[i] = (BYTE)_wtoi(szSerialData[i]);
+//		}
+//	}*/
+//}
+//int QualComMobileWidget::RawSerialSend(int dnum, TCHAR **szSerialData, int len)
+//{
+//	//int status = ERROR_SUCCESS;
+//	//BYTE data[256];
+//
+//	//// Make sure the number of bytes of data we are trying to send is valid
+//	//if (len < 1 || len > sizeof(data)) {
+//	//	return ERROR_INVALID_PARAMETER;
+//	//}
+//
+//	//m_port.Open(dnum);
+// //   StringToByte(szSerialData, data, len);
+//	//status = m_port.Write(data, len);
+//	//return status;
+//}
 
+int QualComMobileWidget::DumpDeviceInfo(void)
+{
+	int status = ERROR_SUCCESS;
+	Sahara sh(&m_port);
+	if (m_protocol == FIREHOSE_PROTOCOL) {
+		pbl_info_t pbl_info;
+		status = sh.DumpDeviceInfo(&pbl_info);
+		if (status == ERROR_SUCCESS) {
+			QString msg;
+			log(kLogTypeInfo, msg.sprintf("SerialNumber: 0x%08x\n", pbl_info.serial));
+			log(kLogTypeInfo, msg.sprintf("MSM_HW_ID: 0x%08x\n", pbl_info.msm_id));
+			log(kLogTypeInfo, msg.sprintf("OEM_PK_HASH: 0x"));
+			//wprintf(L"SerialNumber: 0x%08x\n", pbl_info.serial);
+			//wprintf(L"MSM_HW_ID: 0x%08x\n", pbl_info.msm_id);
+			//wprintf(L"OEM_PK_HASH: 0x");
+			for (int i = 0; i < sizeof(pbl_info.pk_hash); i++) {
+				log(kLogTypeInfo, msg.sprintf("%02x", pbl_info.pk_hash[i]));
+				//wprintf(L"%02x", pbl_info.pk_hash[i]);
+			}
+			log(kLogTypeInfo, msg.sprintf("\nSBL SW Version: 0x%08x\n", pbl_info.pbl_sw));
+			//wprintf(L"\nSBL SW Version: 0x%08x\n", pbl_info.pbl_sw);
+		}
+	}
+	else {
+		QString msg;
+		log(kLogTypeInfo, msg.sprintf("Only devices with Sahara support this information\n"));
+		//wprintf(L"Only devices with Sahara support this information\n");
+		status = ERROR_INVALID_PARAMETER;
+	}
+
+	return status;
+}
+//int QualComMobileWidget::LoadFlashProg(TCHAR *mprgFile)
+//{
+//	QString msg;
+//	int status = ERROR_SUCCESS;
+//	// This is PBL so depends on the chip type
+//
+//	if (m_chipset == 8974) {
+//		Sahara sh(&m_port);
+//		if (status != ERROR_SUCCESS) return status;
+//		status = sh.ConnectToDevice(true, 0);
+//		if (status != ERROR_SUCCESS) return status;
+//		log(kLogTypeInfo, msg.sprintf("Downloading flash programmer: %s\n", mprgFile));
+//		//wprintf(L"Downloading flash programmer: %s\n", mprgFile);
+//		status = sh.LoadFlashProg(mprgFile);
+//		if (status != ERROR_SUCCESS) return status;
+//	}
+//	else {
+//		Dload dl(&m_port);
+//		if (status != ERROR_SUCCESS) return status;
+//		status = dl.IsDeviceInDload();
+//		if (status != ERROR_SUCCESS) return status;
+//		log(kLogTypeInfo, msg.sprintf("Downloading flash programmer: %s\n", mprgFile));
+//		//wprintf(L"Downloading flash programmer: %s\n", mprgFile);
+//		status = dl.LoadFlashProg(mprgFile);
+//		if (status != ERROR_SUCCESS) return status;
+//	}
+//	return status;
+//}
+void QualComMobileWidget::on_toolButton_Start_clicked()
+{
+
+	int dnum = 20;
+	int status = 0;
+	bool bEmergdl = FALSE;
+	TCHAR *szOutputFile = NULL;
+	TCHAR *szXMLFile[8] = { NULL };
+	TCHAR **szSerialData = { NULL };
+	DWORD dwXMLCount = 0;
+	TCHAR *szFFUImage = NULL;
+	TCHAR *szFlashProg = NULL;
+	TCHAR *szSingleImage = NULL;
+	TCHAR *szPartName = NULL;
+	//emmc_cmd_e cmd = EMMC_CMD_NONE;
+	uint64 uiStartSector = 0;
+	uint64 uiNumSectors = 0;
+	uint64 uiOffset = 0x40000000;
+	DWORD dwGPP1 = 0, dwGPP2 = 0, dwGPP3 = 0, dwGPP4 = 0;
+	bool bGppQuiet = FALSE;
+
+      m_port.Open(dnum);
+	 status = DumpDeviceInfo();
+
+}

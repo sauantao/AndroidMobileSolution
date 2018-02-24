@@ -264,35 +264,6 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QToolButton" name="toolButton_2">
-            <property name="maximumSize">
-             <size>
-              <width>64</width>
-              <height>64</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background: transparent; border: none;</string>
-            </property>
-            <property name="text">
-             <string>Tắt máy</string>
-            </property>
-            <property name="icon">
-             <iconset resource="26MobileTool.qrc">
-              <normaloff>:/ImageButton/image/Button/power.png</normaloff>:/ImageButton/image/Button/power.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>64</width>
-              <height>64</height>
-             </size>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonIconOnly</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QToolButton" name="toolButton_TurnOff_4">
             <property name="minimumSize">
              <size>
@@ -443,6 +414,38 @@
               <width>64</width>
               <height>64</height>
              </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButton_Start">
+            <property name="maximumSize">
+             <size>
+              <width>64</width>
+              <height>64</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: transparent; border: none;</string>
+            </property>
+            <property name="text">
+             <string>Tắt máy</string>
+            </property>
+            <property name="icon">
+             <iconset resource="26MobileTool.qrc">
+              <normaloff>:/ImageButton/image/Button/power.png</normaloff>:/ImageButton/image/Button/power.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>64</width>
+              <height>64</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonIconOnly</enum>
+            </property>
+            <property name="autoRaise">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

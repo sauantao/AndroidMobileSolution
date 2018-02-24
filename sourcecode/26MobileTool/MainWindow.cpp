@@ -43,7 +43,7 @@ void MainWindow::CreateWidget()
 		(*it)->Attach();
 	}
 
-	ui->tabWidget->setCurrentWidget(cmd_widget);
+	ui->tabWidget->setCurrentWidget(qualcommobile_widget);
 }
 
 

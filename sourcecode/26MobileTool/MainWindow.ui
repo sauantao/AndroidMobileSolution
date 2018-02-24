@@ -254,13 +254,13 @@
              </size>
             </property>
             <property name="frameShape">
-             <enum>QFrame::WinPanel</enum>
+             <enum>QFrame::Panel</enum>
             </property>
             <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
+             <enum>QFrame::Sunken</enum>
             </property>
             <property name="lineWidth">
-             <number>0</number>
+             <number>1</number>
             </property>
             <property name="text">
              <string>00 : 00</string>

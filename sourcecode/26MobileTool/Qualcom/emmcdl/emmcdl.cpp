@@ -38,6 +38,7 @@ using namespace std;
 #define CLASS_DLOAD  0
 #define CLASS_SAHARA 1
 
+
 static int m_protocol = FIREHOSE_PROTOCOL;
 static int m_class = CLASS_SAHARA;
 static int m_chipset = 8974;

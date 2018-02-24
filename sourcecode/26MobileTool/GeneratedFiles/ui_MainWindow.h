@@ -148,9 +148,9 @@ public:
         label_time->setObjectName(QStringLiteral("label_time"));
         label_time->setMinimumSize(QSize(100, 0));
         label_time->setMaximumSize(QSize(500, 100));
-        label_time->setFrameShape(QFrame::WinPanel);
-        label_time->setFrameShadow(QFrame::Raised);
-        label_time->setLineWidth(0);
+        label_time->setFrameShape(QFrame::Panel);
+        label_time->setFrameShadow(QFrame::Sunken);
+        label_time->setLineWidth(1);
         label_time->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_time);
