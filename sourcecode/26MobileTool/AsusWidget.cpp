@@ -9,6 +9,7 @@
 #include <process.h>
 #include <conio.h>
 #include <list>
+#include <QFileDialog>
 
 
 
@@ -466,57 +467,73 @@ void AsusWidget::SetShortCut(int, const QString &)
 //	
 //	exit(0);
 //}
-//void AsusWidget::log(int type, const char* message) {
-//	QString tmp = "gray";
-//
-//	switch (type) {
-//	case kLogTypeDebug:		tmp = "gray";	break;
-//	case kLogTypeError:		tmp = "red";	break;
-//	case kLogTypeWarning:	tmp = "orange";	break;
-//	case kLogTypeInfo:		tmp = "green";	break;
-//	}
-//
-//	ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message));
-//}
-//
-///**
-//* @brief QcdmWindow::log
-//* @param message
-//*/
-//void AsusWidget::log(int type, std::string message)
-//{
-//	QString tmp = "gray";
-//
-//	switch (type) {
-//	case kLogTypeDebug:		tmp = "gray";	break;
-//	case kLogTypeError:		tmp = "red";	break;
-//	case kLogTypeWarning:	tmp = "orange";	break;
-//	case kLogTypeInfo:		tmp = "green";	break;
-//	}
-//
-//	ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message.c_str()));
-//}
-//
-///**
-//* @brief QcdmWindow::log
-//* @param type
-//* @param message
-//*/
-//void AsusWidget::log(int type, QString message)
-//{
-//
-//	QString tmp = "gray";
-//
-//	switch (type) {
-//	case kLogTypeDebug:		tmp = "gray";	break;
-//	case kLogTypeError:		tmp = "red";	break;
-//	case kLogTypeWarning:	tmp = "orange";	break;
-//	case kLogTypeInfo:		tmp = "green";	break;
-//	}
-//
-//	ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message.toStdString().c_str()));
-//}
+void AsusWidget::log(int type, const char* message) {
+	QString tmp = "gray";
+
+	switch (type) {
+	case kLogTypeDebug:		tmp = "gray";	break;
+	case kLogTypeError:		tmp = "red";	break;
+	case kLogTypeWarning:	tmp = "orange";	break;
+	case kLogTypeInfo:		tmp = "green";	break;
+	}
+
+	ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message));
+}
+
+void AsusWidget::log(int type, std::string message)
+{
+	QString tmp = "gray";
+
+	switch (type) {
+	case kLogTypeDebug:		tmp = "gray";	break;
+	case kLogTypeError:		tmp = "red";	break;
+	case kLogTypeWarning:	tmp = "orange";	break;
+	case kLogTypeInfo:		tmp = "green";	break;
+	}
+
+	ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message.c_str()));
+}
+
+void AsusWidget::log(int type, QString message)
+{
+
+	QString tmp = "gray";
+
+	switch (type) {
+	case kLogTypeDebug:		tmp = "gray";	break;
+	case kLogTypeError:		tmp = "red";	break;
+	case kLogTypeWarning:	tmp = "orange";	break;
+	case kLogTypeInfo:		tmp = "green";	break;
+	}
+
+	ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message.toStdString().c_str()));
+}
 void AsusWidget::on_pushButton_Start_clicked()
 {
 	//Unbrick();
+}
+
+void AsusWidget::on_pushButton_fwdnx_clicked()
+{
+	QString fwdnx = QFileDialog::getOpenFileName(this, QString::fromUtf8(" Chọn file FWDNX "), "d:\\", "fwdnx*.*");
+	ui->lineEdit_fwdnx->setText(fwdnx);
+
+}
+
+void AsusWidget::on_pushButton_fwimage_clicked()
+{
+	QString fwimage = QFileDialog::getOpenFileName(this, QString::fromUtf8(" Chọn file FWIMAGE"), "d:\\", "fwimage*.*");
+	ui->lineEdit_fwimage->setText(fwimage);
+}
+
+void AsusWidget::on_pushButton_osdnx_clicked()
+{
+	QString osdnx = QFileDialog::getOpenFileName(this, QString::fromUtf8(" Chọn file OSDNX"), "d:\\", "oxdnx*.*");
+	ui->lineEdit_osdnx->setText(osdnx);
+}
+
+void AsusWidget::on_pushButton_osimage_clicked()
+{
+	QString osimage = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file OS IMAGE"), "d:\\", "osimage*.*");
+	ui->lineEdit_osimage->setText(osimage);
 }

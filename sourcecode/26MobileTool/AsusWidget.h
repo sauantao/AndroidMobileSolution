@@ -51,8 +51,11 @@ public slots:
 	//void setStdout();
 	//void command();
 private slots:
-
-	void on_pushButton_Start_clicked();
+    void on_pushButton_Start_clicked();
+    void on_pushButton_fwdnx_clicked();
+	void on_pushButton_fwimage_clicked();
+	void on_pushButton_osdnx_clicked();
+	void on_pushButton_osimage_clicked();
 };
 
 #endif // ASUSWIDGET_H

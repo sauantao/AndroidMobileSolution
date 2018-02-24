@@ -73,12 +73,32 @@
            <property name="text">
             <string>Chọn file</string>
            </property>
+           <property name="icon">
+            <iconset resource="26MobileTool.qrc">
+             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_fwimage">
            <property name="text">
             <string>Chọn file</string>
+           </property>
+           <property name="icon">
+            <iconset resource="26MobileTool.qrc">
+             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -87,12 +107,32 @@
            <property name="text">
             <string>Chọn File</string>
            </property>
+           <property name="icon">
+            <iconset resource="26MobileTool.qrc">
+             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_osimage">
            <property name="text">
             <string>Chọn file</string>
+           </property>
+           <property name="icon">
+            <iconset resource="26MobileTool.qrc">
+             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -141,16 +181,14 @@
          </layout>
         </item>
        </layout>
-       <zorder>pushButton_Start</zorder>
-       <zorder>pushButton_Stop</zorder>
-       <zorder>horizontalSpacer</zorder>
-       <zorder>horizontalSpacer</zorder>
       </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="26MobileTool.qrc"/>
+ </resources>
  <connections/>
 </ui>

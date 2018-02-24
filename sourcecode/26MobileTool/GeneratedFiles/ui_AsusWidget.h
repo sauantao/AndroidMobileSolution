@@ -120,21 +120,31 @@ public:
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         pushButton_fwdnx = new QPushButton(AsusWidget);
         pushButton_fwdnx->setObjectName(QStringLiteral("pushButton_fwdnx"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/AsusWidget/image/Button/Add_folder.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_fwdnx->setIcon(icon);
+        pushButton_fwdnx->setIconSize(QSize(24, 24));
 
         verticalLayout_3->addWidget(pushButton_fwdnx);
 
         pushButton_fwimage = new QPushButton(AsusWidget);
         pushButton_fwimage->setObjectName(QStringLiteral("pushButton_fwimage"));
+        pushButton_fwimage->setIcon(icon);
+        pushButton_fwimage->setIconSize(QSize(24, 24));
 
         verticalLayout_3->addWidget(pushButton_fwimage);
 
         pushButton_osdnx = new QPushButton(AsusWidget);
         pushButton_osdnx->setObjectName(QStringLiteral("pushButton_osdnx"));
+        pushButton_osdnx->setIcon(icon);
+        pushButton_osdnx->setIconSize(QSize(24, 24));
 
         verticalLayout_3->addWidget(pushButton_osdnx);
 
         pushButton_osimage = new QPushButton(AsusWidget);
         pushButton_osimage->setObjectName(QStringLiteral("pushButton_osimage"));
+        pushButton_osimage->setIcon(icon);
+        pushButton_osimage->setIconSize(QSize(24, 24));
 
         verticalLayout_3->addWidget(pushButton_osimage);
 
@@ -172,8 +182,6 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_2);
 
-        pushButton_Start->raise();
-        pushButton_Stop->raise();
 
         verticalLayout_5->addWidget(groupBox_Button);
 

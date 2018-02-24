@@ -52,9 +52,9 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1005, 681);
-        MainWindow->setMinimumSize(QSize(1005, 681));
-        MainWindow->setMaximumSize(QSize(1005, 681));
+        MainWindow->resize(1000, 685);
+        MainWindow->setMinimumSize(QSize(1000, 685));
+        MainWindow->setMaximumSize(QSize(1000, 685));
         QIcon icon;
         icon.addFile(QStringLiteral(":/AppIcon/image/Mobile.ico"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -177,7 +177,7 @@ public:
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setEnabled(true);
-        menuBar->setGeometry(QRect(0, 0, 1005, 21));
+        menuBar->setGeometry(QRect(0, 0, 1000, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
