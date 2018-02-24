@@ -31,6 +31,7 @@ static SerialPort m_port;
 static int m_chipset = 8974;
 static int m_protocol = FIREHOSE_PROTOCOL;
 int dnum = -1;
+QString folder = NULL;
 
 QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window) :
     TabWidgetBase(3, tr("&Qualcom Widget"), parent),
@@ -290,7 +291,7 @@ void QualComMobileWidget::on_pushButton_Com_Connec_clicked()
 		//ui->comboBox_ListCom->clear();
 		//QcupdatePortList();
 		dnum = comtemp;
-		m_port.Open(dnum);
+		//m_port.Open(dnum);
 		ui->pushButton_Com_Connec->setEnabled(false);
 	}
 }
@@ -304,16 +305,54 @@ void QualComMobileWidget::on_pushButton_Com_Reload_clicked()
 void QualComMobileWidget::on_pushButton_BootSelect_clicked()
 {
 	QString quacomboot = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file boot"), "d:\\", "*.mbn");
-	ui->comboBox_BootSelect->clear();
-	ui->comboBox_BootSelect->addItem(quacomboot);
+	if (quacomboot.isEmpty()){
+		log(kLogTypeInfo, QString::fromUtf8("Chưa chọn file boot"));
+
+	}
+	else{
+		ui->comboBox_BootSelect->clear();
+		ui->comboBox_BootSelect->addItem(quacomboot);
+	}
+
 }
 void QualComMobileWidget::on_pushButton_RomBootFolder_clicked()
 {
+	QString RomBootFolder = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file boot"), "d:\\", "*.mbn");
+	if (RomBootFolder.isNull()){
+		log(kLogTypeInfo, QString::fromUtf8("Chưa chọn file boot"));
 
+	}
+	else
+	{
+		ui->comboBox_BootSelect->clear();
+		ui->comboBox_BootSelect->addItem(RomBootFolder);
+		 folder = RomBootFolder;
+		 folder.chop(28);
+         ui->lineEdit_FolderRom->setText(folder);
+	}
 }
 void QualComMobileWidget::on_pushButton_RawXmlPatchXml_clicked()
 {
+	QString rawprogram0 = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file Raw Program"), folder, "*.xml");
+	
+	if (rawprogram0.isNull()) {
+		log(kLogTypeInfo, QString::fromUtf8("Chưa chọn file Raw Program xml"));
 
+	}
+	else{
+
+		ui->lineEdit_RawProgramXml->setText(rawprogram0);
+	}
+
+	QString patch = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file Patch "), folder, "*.xml");
+	if (patch.isNull()) {
+		log(kLogTypeInfo, QString::fromUtf8("Chưa chọn file Raw Patch xml"));
+
+	}
+	else{
+
+		ui->lineEdit_PatchXml->setText(patch);
+	}
 }
 void QualComMobileWidget::AutoBootUpdateUI()
 {
@@ -456,22 +495,38 @@ void QualComMobileWidget::on_toolButton_Start_clicked()
      // m_port.Open(dnum);
 	 //status = DumpDeviceInfo();
 	//QString qccomname = "QDLoader 9008";
-	 QString intdnum = ui->comboBox_ListCom->currentText();
+	if (ui->radioButton_ReadInfo->isChecked())
+	{
 
-	 if (!(intdnum.contains("QDLoader 9008")))
-	 {
-	    log(kLogTypeInfo, QString::fromUtf8("   Không có thiết bị nào được kết nối .\n   Hãy kiểm tra lại kết nối cáp thiết bị , driver ...\n   Sau đó bấm nút làm mới cổng com & thử lại "));
-	 }
-	 else
-	 {
-		 QString comtemp = intdnum.right(3);
-		 //QString comtemp1 = comtemp.truncate(1);
-		// QString str = (QString::fromUtf8("  Kết nối với cổng : ")   + comtemp);
-		 //QString str = (QString::fromUtf8("  Kết nối với cổng : "));
 
-		 QString dnumtemp = QString::number(dnum);
-		 //log(kLogTypeWarning, str);
-		 log(kLogTypeWarning, QString::fromUtf8("  Kết nối với cổng COM : ")  + dnumtemp);
-	 }
+		QString intdnum = ui->comboBox_ListCom->currentText();
 
+		if (!(intdnum.contains("QDLoader 9008"))) {
+			log(kLogTypeInfo, QString::fromUtf8("   Không có thiết bị nào được kết nối .\n   Hãy kiểm tra lại kết nối cáp thiết bị , driver ...\n   Sau đó bấm nút làm mới cổng com & thử lại "));
+		}
+		else {
+			//QString comtemp = intdnum.right(3);
+			//QString comtemp1 = comtemp.truncate(1);
+		   // QString str = (QString::fromUtf8("  Kết nối với cổng : ")   + comtemp);
+			//QString str = (QString::fromUtf8("  Kết nối với cổng : "));
+			if (dnum == -1) {
+				log(kLogTypeInfo, QString::fromUtf8(" Hãy bấm kết nối để thiết lập kết nối cổng COM. "));
+
+			}
+			if (!(dnum == -1)) {
+				QString dnumtemp = QString::number(dnum);
+				//log(kLogTypeWarning, str);
+				log(kLogTypeWarning, QString::fromUtf8("  Kết nối với cổng COM : ") + dnumtemp);
+			}
+
+
+		}
+		m_port.Open(dnum);
+		//status = 
+		DumpDeviceInfo();
+	}
+	if (ui->radioButton_Flash->isChecked())
+	{
+		log(kLogTypeInfo, QString::fromUtf8("Flash"));
+	}
 }
