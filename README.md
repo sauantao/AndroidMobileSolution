@@ -1,3 +1,3 @@
-# qualcom-tool
+# AndroidMobileSolution
 
-qualcom flash tool
+Android mobile software repair tool
