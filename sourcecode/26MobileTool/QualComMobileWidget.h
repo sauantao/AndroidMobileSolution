@@ -41,6 +41,7 @@ public:
 public slots:
 
      int updatePortList();
+	 int QcupdatePortList();
 	 void AutoBootUpdateUI();
 	 void ReadInfoUpdateUI();
 	 void FlashUpdateUI();

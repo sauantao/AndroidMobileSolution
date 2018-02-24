@@ -16,6 +16,8 @@
 #include "partition.h"
 #include <QFileDialog>
 #include <winerror.h>
+#include <QString>
+#include <Qchar>
 
 //Only List COM port information for desktop version
 #ifndef ARM
@@ -28,6 +30,7 @@ using namespace std;
 static SerialPort m_port;
 static int m_chipset = 8974;
 static int m_protocol = FIREHOSE_PROTOCOL;
+int dnum = -1;
 
 QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window) :
     TabWidgetBase(3, tr("&Qualcom Widget"), parent),
@@ -123,7 +126,7 @@ int QualComMobileWidget::updatePortList()
 			if (SetupDiGetDeviceProperty(hDevInfo, &DeviceInfoData, &DEVPKEY_Device_FriendlyName, &ulPropertyType, (BYTE*)szBuffer, sizeof(szBuffer), &dwSize, 0)) {
 
 				if ((GetLastError() == ERROR_SUCCESS) && wcsstr(szBuffer, Htcom) != NULL) {
-					log(kLogTypeInfo, QString::fromUtf8("  Đã tìm thấy thiết bị ...\n"));
+					//log(kLogTypeInfo, QString::fromUtf8("  Đã tìm thấy thiết bị ...\n"));
 					//convert from wide char to narrow char array
 					char ch[512];
 					char DefChar = ' ';
@@ -148,7 +151,7 @@ int QualComMobileWidget::updatePortList()
 							//A std:string  using the char* constructor.
 							std::string ss(ch);
 							QString qstr = QString::fromStdString(ss);
-							log(kLogTypeError, QString::fromUtf8("  Đã kết nối với cổng :   ") + qstr);
+							//log(kLogTypeError, QString::fromUtf8("  Đã kết nối với cổng :   ") + qstr);
 							QString msg;
 							log(kLogTypeInfo, msg.sprintf("  SERIAL=0x%x  :  HW_ID=0x%x   ", pbl_info.serial, pbl_info.msm_id));
 
@@ -160,6 +163,58 @@ int QualComMobileWidget::updatePortList()
 							}
 						}
 					}
+					log(kLogTypeInfo, "\n\n");
+				}
+			}
+		}
+	}
+#endif //ARM
+	return ERROR_SUCCESS;
+}
+int QualComMobileWidget::QcupdatePortList()
+{
+#ifndef ARM
+	HDEVINFO hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_COMPORT, NULL, NULL, DIGCF_DEVICEINTERFACE | DIGCF_PRESENT);
+	DEVPROPTYPE ulPropertyType = DEVPROP_TYPE_STRING;
+	DWORD dwSize;
+#endif //ARM
+	ui->plainTextEdit->clear();
+	log(kLogTypeInfo, QString::fromUtf8("  Đang tìm kiếm thiết bị QualCom  ...\n"));
+#ifndef ARM
+	if (hDevInfo != INVALID_HANDLE_VALUE) {
+		// Successfully got a list of ports
+		for (int i = 0; ; i++) {
+			WCHAR szBuffer[512];
+			SP_DEVINFO_DATA DeviceInfoData;
+			DeviceInfoData.cbSize = sizeof(SP_DEVINFO_DATA);
+
+			wchar_t *Htcom;
+			if (ui->checkBox_QcOnly->isChecked()) {
+				Htcom = L"QDLoader 9008";
+			}
+			else {
+				Htcom = L"";
+			}
+
+			if (!SetupDiEnumDeviceInfo(hDevInfo, i, &DeviceInfoData) && (GetLastError() == ERROR_NO_MORE_ITEMS)) {
+				// No more ports
+
+				break;
+			}
+			// successfully found entry print out the info
+			if (SetupDiGetDeviceProperty(hDevInfo, &DeviceInfoData, &DEVPKEY_Device_FriendlyName, &ulPropertyType, (BYTE*)szBuffer, sizeof(szBuffer), &dwSize, 0)) {
+
+				if ((GetLastError() == ERROR_SUCCESS) && wcsstr(szBuffer, Htcom) != NULL) {
+					//log(kLogTypeInfo, QString::fromUtf8("  Đã tìm thấy thiết bị ...\n"));
+					//convert from wide char to narrow char array
+					char ch[512];
+					char DefChar = ' ';
+					WideCharToMultiByte(CP_ACP, 0, szBuffer, -1, ch, 512, &DefChar, NULL);
+					//A std:string  using the char* constructor.
+					std::string ss(ch);
+					QString qstr = QString::fromStdString(ss);
+					log(kLogTypeError, "  " + qstr);
+					ui->comboBox_ListCom->addItem(qstr);
 					log(kLogTypeInfo, "\n\n");
 				}
 			}
@@ -213,19 +268,38 @@ void QualComMobileWidget::log(int type, QString message)
 
 void QualComMobileWidget::on_pushButton_Com_Connec_clicked()
 {
-	int dnum = 20;
-	ui->comboBox_ListCom->clear();
-	updatePortList();
-	m_port.Open(dnum);
-	ui->pushButton_Com_Connec->setEnabled(false);
-	//ui->toolButton_stop->setEnabled(true);
 
+	QString intdnum = ui->comboBox_ListCom->currentText();
+
+	if (!(intdnum.contains("QDLoader 9008")))
+	{
+		log(kLogTypeInfo, QString::fromUtf8("   Không có thiết bị nào được kết nối .\n   Hãy kiểm tra lại kết nối cáp thiết bị , driver ...\n   Sau đó bấm nút làm mới cổng com & thử lại "));
+	}
+	else
+	{
+		QString intdnum = ui->comboBox_ListCom->currentText();
+		QChar com1 = intdnum.at(34); QChar com2 = intdnum.at(35);
+		QString comtemp1 = "";
+		comtemp1.append(com1);
+		comtemp1.append(com2);
+		//log(kLogTypeWarning, comtemp1);
+		int comtemp = comtemp1.toInt();
+		//QString comtemp1 = comtemp.truncate(1);
+		QString str = (QString::fromUtf8("  Kết nối với cổng : ") + QString::number(comtemp));
+		//log(kLogTypeWarning, str);
+		//ui->comboBox_ListCom->clear();
+		//QcupdatePortList();
+		dnum = comtemp;
+		m_port.Open(dnum);
+		ui->pushButton_Com_Connec->setEnabled(false);
+	}
 }
 void QualComMobileWidget::on_pushButton_Com_Reload_clicked()
 {
 	ui->comboBox_ListCom->clear();
-	updatePortList();
+	QcupdatePortList();
 	ui->pushButton_Com_Connec->setEnabled(true);
+	dnum = -1;
 }
 void QualComMobileWidget::on_pushButton_BootSelect_clicked()
 {
@@ -361,7 +435,7 @@ int QualComMobileWidget::DumpDeviceInfo(void)
 void QualComMobileWidget::on_toolButton_Start_clicked()
 {
 
-	int dnum = 20;
+	//int dnum = 20;
 	int status = 0;
 	bool bEmergdl = FALSE;
 	TCHAR *szOutputFile = NULL;
@@ -379,7 +453,25 @@ void QualComMobileWidget::on_toolButton_Start_clicked()
 	DWORD dwGPP1 = 0, dwGPP2 = 0, dwGPP3 = 0, dwGPP4 = 0;
 	bool bGppQuiet = FALSE;
 
-      m_port.Open(dnum);
-	 status = DumpDeviceInfo();
+     // m_port.Open(dnum);
+	 //status = DumpDeviceInfo();
+	//QString qccomname = "QDLoader 9008";
+	 QString intdnum = ui->comboBox_ListCom->currentText();
+
+	 if (!(intdnum.contains("QDLoader 9008")))
+	 {
+	    log(kLogTypeInfo, QString::fromUtf8("   Không có thiết bị nào được kết nối .\n   Hãy kiểm tra lại kết nối cáp thiết bị , driver ...\n   Sau đó bấm nút làm mới cổng com & thử lại "));
+	 }
+	 else
+	 {
+		 QString comtemp = intdnum.right(3);
+		 //QString comtemp1 = comtemp.truncate(1);
+		// QString str = (QString::fromUtf8("  Kết nối với cổng : ")   + comtemp);
+		 //QString str = (QString::fromUtf8("  Kết nối với cổng : "));
+
+		 QString dnumtemp = QString::number(dnum);
+		 //log(kLogTypeWarning, str);
+		 log(kLogTypeWarning, QString::fromUtf8("  Kết nối với cổng COM : ")  + dnumtemp);
+	 }
 
 }
