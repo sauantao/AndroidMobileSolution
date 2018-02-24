@@ -1,11 +1,7 @@
 #include "QualComMobileWidget.h"
 #include "ui_QualComMobileWidget.h"
-#include <cstdio>
-#include <cstdlib>
 #include <iostream>
 #include <string>
-#include <Windows.h>
-//#include "tchar.h"
 #include "serialport.h"
 #include "sahara.h"
 #include "protocol.h"
@@ -15,7 +11,6 @@
 #include "diskwriter.h"
 #include "partition.h"
 #include <QFileDialog>
-#include <winerror.h>
 #include <QString>
 #include <Qchar>
 
@@ -30,6 +25,11 @@ using namespace std;
 static SerialPort m_port;
 static int m_chipset = 8974;
 static int m_protocol = FIREHOSE_PROTOCOL;
+//static int m_class = CLASS_SAHARA;
+static int m_sector_size = 512;
+static bool m_emergency = false;
+static bool m_verbose = false;
+static fh_configure_t m_cfg = { 4, "emmc", false, false, true, -1,1024 * 1024 };
 int dnum = -1;
 QString folder = NULL;
 
@@ -379,38 +379,197 @@ void QualComMobileWidget::FlashUpdateUI()
 
 	ui->groupBox_RomSelect->setHidden(false);
 }
-//void QualComMobileWidget::StringToByte(TCHAR **szSerialData, BYTE *data, int len)
-//{
-//	/*for (int i = 0; i < len; i++) {
-//		TCHAR *hex = szSerialData[i];
-//		if (wcsncmp(hex, L"0x", 2) == 0) {
-//			BYTE val1 = (BYTE)(hex[2] - '0');
-//			BYTE val2 = (BYTE)(hex[3] - '0');
-//			if (val1 > 9) val1 = val1 - 7;
-//			if (val2 > 9) val2 = val2 - 7;
-//			data[i] = (val1 << 4) + val2;
-//		}
-//		else {
-//			data[i] = (BYTE)_wtoi(szSerialData[i]);
-//		}
-//	}*/
-//}
-//int QualComMobileWidget::RawSerialSend(int dnum, TCHAR **szSerialData, int len)
-//{
-//	//int status = ERROR_SUCCESS;
-//	//BYTE data[256];
-//
-//	//// Make sure the number of bytes of data we are trying to send is valid
-//	//if (len < 1 || len > sizeof(data)) {
-//	//	return ERROR_INVALID_PARAMETER;
-//	//}
-//
-//	//m_port.Open(dnum);
-// //   StringToByte(szSerialData, data, len);
-//	//status = m_port.Write(data, len);
-//	//return status;
-//}
+void QualComMobileWidget::StringToByte(TCHAR **szSerialData, BYTE *data, int len)
+{
+	for (int i = 0; i < len; i++) {
+		TCHAR *hex = szSerialData[i];
+		if (wcsncmp(hex, L"0x", 2) == 0) {
+			BYTE val1 = (BYTE)(hex[2] - '0');
+			BYTE val2 = (BYTE)(hex[3] - '0');
+			if (val1 > 9) val1 = val1 - 7;
+			if (val2 > 9) val2 = val2 - 7;
+			data[i] = (val1 << 4) + val2;
+		}
+		else {
+			data[i] = (BYTE)_wtoi(szSerialData[i]);
+		}
+	}
+}
+int QualComMobileWidget::RawSerialSend(int dnum, TCHAR **szSerialData, int len)
+{
+	int status = ERROR_SUCCESS;
+	BYTE data[256];
 
+	// Make sure the number of bytes of data we are trying to send is valid
+	if (len < 1 || len > sizeof(data)) {
+		return ERROR_INVALID_PARAMETER;
+	}
+
+	m_port.Open(dnum);
+    StringToByte(szSerialData, data, len);
+	status = m_port.Write(data, len);
+	return status;
+}
+int QualComMobileWidget::EraseDisk(uint64 start, uint64 num, int dnum, TCHAR *szPartName)
+{
+	int status = ERROR_SUCCESS;
+
+	if (m_emergency) {
+		Firehose fh(&m_port);
+		fh.SetDiskSectorSize(m_sector_size);
+		if (m_verbose) fh.EnableVerbose();
+		status = fh.ConnectToFlashProg(&m_cfg);
+		if (status != ERROR_SUCCESS) return status;
+		wprintf(L"Connected to flash programmer, starting download\n");
+		fh.WipeDiskContents(start, num, szPartName);
+	}
+	else {
+		DiskWriter dw;
+		// Initialize and print disk list
+		dw.InitDiskList(false);
+
+		status = dw.OpenDevice(dnum);
+		if (status == ERROR_SUCCESS) {
+			wprintf(L"Successfully opened volume\n");
+			wprintf(L"Erase at start_sector %I64d: num_sectors: %I64d\n", start, num);
+			status = dw.WipeDiskContents(start, num, szPartName);
+		}
+		dw.CloseDevice();
+	}
+	return status;
+}
+int QualComMobileWidget::WipeDisk(int dnum)
+{
+	DiskWriter dw;
+	int status;
+
+	// Initialize and print disk list
+	dw.InitDiskList();
+
+	status = dw.OpenDevice(dnum);
+	if (status == ERROR_SUCCESS) {
+		wprintf(L"Successfully opened volume\n");
+		wprintf(L"Wipping GPT and MBR\n");
+		status = dw.WipeLayout();
+	}
+	dw.CloseDevice();
+	return status;
+}
+int QualComMobileWidget::ReadGPT(int dnum)
+{
+	int status;
+
+	if (m_emergency) {
+		Firehose fh(&m_port);
+		fh.SetDiskSectorSize(m_sector_size);
+		if (m_verbose) fh.EnableVerbose();
+		status = fh.ConnectToFlashProg(&m_cfg);
+		if (status != ERROR_SUCCESS) return status;
+		wprintf(L"Connected to flash programmer, starting download\n");
+		fh.ReadGPT(true);
+	}
+	else {
+		DiskWriter dw;
+		dw.InitDiskList();
+		status = dw.OpenDevice(dnum);
+
+		if (status == ERROR_SUCCESS) {
+			status = dw.ReadGPT(true);
+		}
+
+		dw.CloseDevice();
+	}
+	return status;
+}
+int QualComMobileWidget::WriteGPT(int dnum, TCHAR *szPartName, TCHAR *szBinFile)
+{
+	int status;
+
+	if (m_emergency) {
+		Firehose fh(&m_port);
+		fh.SetDiskSectorSize(m_sector_size);
+		if (m_verbose) fh.EnableVerbose();
+		status = fh.ConnectToFlashProg(&m_cfg);
+		if (status != ERROR_SUCCESS) return status;
+		wprintf(L"Connected to flash programmer, starting download\n");
+		status = fh.WriteGPT(szPartName, szBinFile);
+	}
+	else {
+		DiskWriter dw;
+		dw.InitDiskList();
+		status = dw.OpenDevice(dnum);
+		if (status == ERROR_SUCCESS) {
+			status = dw.WriteGPT(szPartName, szBinFile);
+		}
+		dw.CloseDevice();
+	}
+	return status;
+}
+int QualComMobileWidget::ResetDevice()
+{
+	Dload dl(&m_port);
+	int status = ERROR_SUCCESS;
+	if (status != ERROR_SUCCESS) return status;
+	status = dl.DeviceReset();
+	return status;
+}
+int QualComMobileWidget::RawDiskProgram(TCHAR **pFile, TCHAR *oFile, uint64 dnum)
+{
+	DiskWriter dw;
+	int status = ERROR_SUCCESS;
+
+	// Depending if we want to write to disk or file get appropriate handle
+	if (oFile != NULL) {
+		status = dw.OpenDiskFile(oFile, dnum);
+	}
+	else {
+		int disk = dnum & 0xFFFFFFFF;
+		// Initialize and print disk list
+		dw.InitDiskList();
+		status = dw.OpenDevice(disk);
+	}
+	if (status == ERROR_SUCCESS) {
+		wprintf(L"Successfully opened disk\n");
+		for (int i = 0; pFile[i] != NULL; i++) {
+			Partition p(dw.GetNumDiskSectors());
+			status = p.PreLoadImage(pFile[i]);
+			if (status != ERROR_SUCCESS) return status;
+			status = p.ProgramImage(&dw);
+		}
+	}
+
+	dw.CloseDevice();
+	return status;
+}
+int QualComMobileWidget::RawDiskDump(uint64 start, uint64 num, TCHAR *oFile, int dnum, TCHAR *szPartName)
+{
+	DiskWriter dw;
+	int status = ERROR_SUCCESS;
+
+	// Get extra info from the user via command line
+	wprintf(L"Dumping at start sector: %I64d for sectors: %I64d to file: %s\n", start, num, oFile);
+	if (m_emergency) {
+		Firehose fh(&m_port);
+		fh.SetDiskSectorSize(m_sector_size);
+		if (m_verbose) fh.EnableVerbose();
+		if (status != ERROR_SUCCESS) return status;
+		status = fh.ConnectToFlashProg(&m_cfg);
+		if (status != ERROR_SUCCESS) return status;
+		wprintf(L"Connected to flash programmer, starting dump\n");
+		status = fh.DumpDiskContents(start, num, oFile, 0, szPartName);
+	}
+	else {
+		// Initialize and print disk list
+		dw.InitDiskList();
+		status = dw.OpenDevice(dnum);
+		if (status == ERROR_SUCCESS) {
+			wprintf(L"Successfully opened volume\n");
+			status = dw.DumpDiskContents(start, num, oFile, 0, szPartName);
+		}
+		dw.CloseDevice();
+	}
+	return status;
+}
 int QualComMobileWidget::DumpDeviceInfo(void)
 {
 	int status = ERROR_SUCCESS;
@@ -443,34 +602,34 @@ int QualComMobileWidget::DumpDeviceInfo(void)
 
 	return status;
 }
-//int QualComMobileWidget::LoadFlashProg(TCHAR *mprgFile)
-//{
-//	QString msg;
-//	int status = ERROR_SUCCESS;
-//	// This is PBL so depends on the chip type
-//
-//	if (m_chipset == 8974) {
-//		Sahara sh(&m_port);
-//		if (status != ERROR_SUCCESS) return status;
-//		status = sh.ConnectToDevice(true, 0);
-//		if (status != ERROR_SUCCESS) return status;
-//		log(kLogTypeInfo, msg.sprintf("Downloading flash programmer: %s\n", mprgFile));
-//		//wprintf(L"Downloading flash programmer: %s\n", mprgFile);
-//		status = sh.LoadFlashProg(mprgFile);
-//		if (status != ERROR_SUCCESS) return status;
-//	}
-//	else {
-//		Dload dl(&m_port);
-//		if (status != ERROR_SUCCESS) return status;
-//		status = dl.IsDeviceInDload();
-//		if (status != ERROR_SUCCESS) return status;
-//		log(kLogTypeInfo, msg.sprintf("Downloading flash programmer: %s\n", mprgFile));
-//		//wprintf(L"Downloading flash programmer: %s\n", mprgFile);
-//		status = dl.LoadFlashProg(mprgFile);
-//		if (status != ERROR_SUCCESS) return status;
-//	}
-//	return status;
-//}
+int QualComMobileWidget::LoadFlashProg(TCHAR *mprgFile)
+{
+	QString msg;
+	int status = ERROR_SUCCESS;
+	// This is PBL so depends on the chip type
+
+	if (m_chipset == 8974) {
+		Sahara sh(&m_port);
+		if (status != ERROR_SUCCESS) return status;
+		status = sh.ConnectToDevice(true, 0);
+		if (status != ERROR_SUCCESS) return status;
+		log(kLogTypeInfo, msg.sprintf("Downloading flash programmer: %s\n", mprgFile));
+		//wprintf(L"Downloading flash programmer: %s\n", mprgFile);
+		status = sh.LoadFlashProg(mprgFile);
+		if (status != ERROR_SUCCESS) return status;
+	}
+	else {
+		Dload dl(&m_port);
+		if (status != ERROR_SUCCESS) return status;
+		status = dl.IsDeviceInDload();
+		if (status != ERROR_SUCCESS) return status;
+		log(kLogTypeInfo, msg.sprintf("Downloading flash programmer: %s\n", mprgFile));
+		//wprintf(L"Downloading flash programmer: %s\n", mprgFile);
+		status = dl.LoadFlashProg(mprgFile);
+		if (status != ERROR_SUCCESS) return status;
+	}
+	return status;
+}
 void QualComMobileWidget::on_toolButton_Start_clicked()
 {
 

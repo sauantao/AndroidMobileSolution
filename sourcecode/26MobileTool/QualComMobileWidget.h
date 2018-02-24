@@ -8,6 +8,11 @@
 #include "TabWidgetBase.h"
 #include "emmcdl.h"
 #include "tchar.h"
+#include <Windows.h>
+#include <stdint.h>
+#include <winerror.h>
+#include <xmlparser.h>
+
 
 
 
@@ -32,10 +37,17 @@ public:
 
      DECLARE_TABWIDGET_VFUNCS()
 
-	 //void StringToByte(TCHAR **szSerialData, BYTE *data, int len);
-	 //int RawSerialSend(int dnum, TCHAR **szSerialData, int len);
+	 void StringToByte(TCHAR **szSerialData, BYTE *data, int len);
+	 int RawSerialSend(int dnum, TCHAR **szSerialData, int len);
+	 int EraseDisk(uint64 start, uint64 num, int dnum, TCHAR *szPartName);
 	 int DumpDeviceInfo(void);
-	 //int LoadFlashProg(TCHAR *mprgFile);
+	 int LoadFlashProg(TCHAR *mprgFile);
+	 int WipeDisk(int dnum);
+	 int ReadGPT(int dnum);
+	 int WriteGPT(int dnum, TCHAR *szPartName, TCHAR *szBinFile);
+	 int ResetDevice();
+	 int RawDiskProgram(TCHAR **pFile, TCHAR *oFile, uint64 dnum);
+	 int RawDiskDump(uint64 start, uint64 num, TCHAR *oFile, int dnum, TCHAR *szPartName);
     
 
 public slots:
