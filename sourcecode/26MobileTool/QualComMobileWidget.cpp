@@ -41,6 +41,7 @@ QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window)
     main_window(window)
 {
   ui->setupUi(this);
+
   ui->checkBox_QcOnly->setChecked(true);
   ui->checkBox_AutoBoot->setChecked(true);
   ui->comboBox_ListCom->addItem("- Select a Port -");
@@ -285,15 +286,9 @@ void QualComMobileWidget::on_pushButton_Com_Connec_clicked()
 		QString comtemp1 = "";
 		comtemp1.append(com1);
 		comtemp1.append(com2);
-		//log(kLogTypeWarning, comtemp1);
 		int comtemp = comtemp1.toInt();
-		//QString comtemp1 = comtemp.truncate(1);
 		QString str = (QString::fromUtf8("  Kết nối với cổng : ") + QString::number(comtemp));
-		//log(kLogTypeWarning, str);
-		//ui->comboBox_ListCom->clear();
-		//QcupdatePortList();
 		dnum = comtemp;
-		//m_port.Open(dnum);
 		ui->pushButton_Com_Connec->setEnabled(false);
 	}
 }
@@ -666,28 +661,20 @@ void QualComMobileWidget::on_toolButton_Start_clicked()
 			log(kLogTypeInfo, QString::fromUtf8("   Không có thiết bị nào được kết nối .\n   Hãy kiểm tra lại kết nối cáp thiết bị , driver ...\n   Sau đó bấm nút làm mới cổng com & thử lại "));
 		}
 		else {
-			//QString comtemp = intdnum.right(3);
-			//QString comtemp1 = comtemp.truncate(1);
-		   // QString str = (QString::fromUtf8("  Kết nối với cổng : ")   + comtemp);
-			//QString str = (QString::fromUtf8("  Kết nối với cổng : "));
 			if (dnum == -1) {
 				log(kLogTypeInfo, QString::fromUtf8(" Hãy bấm kết nối để thiết lập kết nối cổng COM. "));
-
 			}
 			if (!(dnum == -1)) {
 				QString dnumtemp = QString::number(dnum);
 				//log(kLogTypeWarning, str);
 				log(kLogTypeWarning, QString::fromUtf8("  Kết nối với cổng COM : ") + dnumtemp);
 			}
-
-
 		}
 		m_port.Open(dnum);
 		//status = 
 		DumpDeviceInfo();
 	}
-	if (ui->radioButton_Flash->isChecked())
-	{
+	if (ui->radioButton_Flash->isChecked()){
 		log(kLogTypeInfo, QString::fromUtf8("Flash"));
 	}
 }
