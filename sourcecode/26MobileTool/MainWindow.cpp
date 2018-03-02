@@ -4,6 +4,12 @@
 #include "emmcrawwidget.h"
 #include "QualComMobileWidget.h"
 #include "AsusWidget.h"
+#include <QFileDialog>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QProcess>
+#include <QMessagebox>
+
 
 using namespace std;
 
@@ -120,3 +126,55 @@ int MainWindow::Tesmain()
 }
 
 
+
+void MainWindow::on_toolButton_OpQualcom_clicked()
+{
+	QString filename = "D:\\MobileSolution\\Git\\SNWriter\\Output\\SN Writer.exe";
+	QDesktopServices::openUrl(QUrl("file:///" + filename, QUrl::TolerantMode));
+}
+
+void MainWindow::on_toolButton_OpMediatek_clicked()
+{
+	//QString filename = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file"), "d:\\", "*.*");
+	//QUrl url(filename);
+	QString filename = "D:\\MobileSolution\\App.publish\\builder\\MobileTool\\Win32\\26MobileTool\\Mobiletool.exe";
+	QDesktopServices::openUrl(QUrl("file:///"+filename,QUrl::TolerantMode));
+}
+
+void MainWindow::on_toolButton_OpIntel_clicked()
+{
+
+}
+
+void MainWindow::on_toolButton_OpSprd_clicked()
+{
+	//QObject *parent;
+	//QString program = "D:\\MobileSolution\\Git\\WriteIMEI_R19.0.0001\\Bin\\SprdImelWrite.exe";
+	QString program = "D:\\MobileSolution\\Git\\RESEARCHDOWNLOADR\\Bin\\DLoader.exe";
+	QStringList arguments;
+	arguments << "-style" << "motif";
+	QProcess *myProcess = new QProcess;// (parent);
+	if (myProcess->state() == QProcess::Running)
+	{
+		QMessageBox::warning(this, QString::fromUtf8("Chú ý"), QString::fromUtf8("Chương trình đang chạy"));
+		return;
+	}
+
+	myProcess->start(program, arguments);
+}
+
+void MainWindow::on_toolButton_OpAndroid_clicked()
+{
+	//QObject *parent;
+	QString program = "D:\\MobileSolution\\Git\\RESEARCHDOWNLOADR\\Bin\\DLoader.exe";
+	QStringList arguments;
+	arguments << "-style" << "motif";
+	QProcess *myProcess = new QProcess;// (parent);
+	if (myProcess->state() == QProcess::Running)
+	{
+		QMessageBox::warning(this, QString::fromUtf8("Chú ý"), QString::fromUtf8("Chương trình đang chạy"));
+		return;
+	}
+
+	myProcess->start(program, arguments);
+}

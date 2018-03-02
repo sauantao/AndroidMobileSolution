@@ -269,7 +269,9 @@ public:
         toolButton_TurnOff_4->setObjectName(QStringLiteral("toolButton_TurnOff_4"));
         toolButton_TurnOff_4->setMinimumSize(QSize(64, 64));
         toolButton_TurnOff_4->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff_4->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        toolButton_TurnOff_4->setStyleSheet(QLatin1String("background: transparent;\n"
+"border-radius: 10px;\n"
+"border: 1px solid grey;"));
         QIcon icon;
         icon.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-check_blue_68680.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_TurnOff_4->setIcon(icon);
@@ -281,7 +283,9 @@ public:
         toolButton_TurnOff_3->setObjectName(QStringLiteral("toolButton_TurnOff_3"));
         toolButton_TurnOff_3->setMinimumSize(QSize(64, 64));
         toolButton_TurnOff_3->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff_3->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        toolButton_TurnOff_3->setStyleSheet(QLatin1String("background: transparent;\n"
+"border-radius: 10px;\n"
+"border: 1px solid grey;"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-cross_red_69065.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_TurnOff_3->setIcon(icon1);
@@ -293,7 +297,9 @@ public:
         toolButton_TurnOff->setObjectName(QStringLiteral("toolButton_TurnOff"));
         toolButton_TurnOff->setMinimumSize(QSize(64, 64));
         toolButton_TurnOff->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        toolButton_TurnOff->setStyleSheet(QLatin1String("background: transparent;\n"
+"border-radius: 10px;\n"
+"border: 1px solid grey;"));
         QIcon icon2;
         icon2.addFile(QStringLiteral(":/ImageButton/image/Button/checl.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_TurnOff->setIcon(icon2);
@@ -304,7 +310,9 @@ public:
         toolButton_Reboot = new QToolButton(groupBox_3);
         toolButton_Reboot->setObjectName(QStringLiteral("toolButton_Reboot"));
         toolButton_Reboot->setMaximumSize(QSize(64, 64));
-        toolButton_Reboot->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        toolButton_Reboot->setStyleSheet(QLatin1String("background: transparent;\n"
+"border-radius: 10px;\n"
+"border: 1px solid grey;"));
         QIcon icon3;
         icon3.addFile(QStringLiteral(":/ImageButton/image/Button/reboot.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_Reboot->setIcon(icon3);
@@ -316,7 +324,9 @@ public:
         toolButton_TurnOff_2->setObjectName(QStringLiteral("toolButton_TurnOff_2"));
         toolButton_TurnOff_2->setMinimumSize(QSize(64, 64));
         toolButton_TurnOff_2->setMaximumSize(QSize(64, 64));
-        toolButton_TurnOff_2->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        toolButton_TurnOff_2->setStyleSheet(QLatin1String("background: transparent;\n"
+"border-radius: 10px;\n"
+"border: 1px solid grey;"));
         QIcon icon4;
         icon4.addFile(QStringLiteral(":/ImageButton/image/Button/if_button-power_red_69071.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_TurnOff_2->setIcon(icon4);
@@ -327,7 +337,10 @@ public:
         toolButton_Start = new QToolButton(groupBox_3);
         toolButton_Start->setObjectName(QStringLiteral("toolButton_Start"));
         toolButton_Start->setMaximumSize(QSize(64, 64));
-        toolButton_Start->setStyleSheet(QStringLiteral("background: transparent; border: none;"));
+        toolButton_Start->setStyleSheet(QLatin1String("background: transparent;\n"
+"border-radius: 10px;\n"
+"border: 1px solid grey;\n"
+""));
         QIcon icon5;
         icon5.addFile(QStringLiteral(":/ImageButton/image/Button/power.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_Start->setIcon(icon5);

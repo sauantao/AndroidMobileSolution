@@ -4,7 +4,6 @@
 
 
 
-
 CmdWidget::CmdWidget(QTabWidget *parent, MainWindow *window) :
     TabWidgetBase(0, tr("&Cmd Widget"), parent),
     ui(new Ui::CmdWidget),

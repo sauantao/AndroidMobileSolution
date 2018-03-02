@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -20,6 +21,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -29,8 +31,17 @@ QT_BEGIN_NAMESPACE
 class Ui_AsusWidget
 {
 public:
-    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout_4;
+    QVBoxLayout *verticalLayout_7;
+    QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout_3;
+    QRadioButton *radioButton;
+    QRadioButton *radioButton_2;
+    QComboBox *comboBox;
+    QPushButton *pushButton;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_6;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_fwdnx;
@@ -60,30 +71,66 @@ public:
         if (AsusWidget->objectName().isEmpty())
             AsusWidget->setObjectName(QStringLiteral("AsusWidget"));
         AsusWidget->resize(843, 518);
-        verticalLayout_6 = new QVBoxLayout(AsusWidget);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        verticalLayout_5 = new QVBoxLayout();
+        horizontalLayout_4 = new QHBoxLayout(AsusWidget);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        verticalLayout_7 = new QVBoxLayout();
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        groupBox_2 = new QGroupBox(AsusWidget);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        verticalLayout_5 = new QVBoxLayout(groupBox_2);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        radioButton = new QRadioButton(groupBox_2);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+
+        horizontalLayout_3->addWidget(radioButton);
+
+        radioButton_2 = new QRadioButton(groupBox_2);
+        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+
+        horizontalLayout_3->addWidget(radioButton_2);
+
+        comboBox = new QComboBox(groupBox_2);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+
+        horizontalLayout_3->addWidget(comboBox);
+
+        pushButton = new QPushButton(groupBox_2);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        horizontalLayout_3->addWidget(pushButton);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_3);
+
+
+        verticalLayout_7->addWidget(groupBox_2);
+
+        groupBox = new QGroupBox(AsusWidget);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+        verticalLayout_6 = new QVBoxLayout(groupBox);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label_fwdnx = new QLabel(AsusWidget);
+        label_fwdnx = new QLabel(groupBox);
         label_fwdnx->setObjectName(QStringLiteral("label_fwdnx"));
 
         verticalLayout_2->addWidget(label_fwdnx);
 
-        label_fwimage = new QLabel(AsusWidget);
+        label_fwimage = new QLabel(groupBox);
         label_fwimage->setObjectName(QStringLiteral("label_fwimage"));
 
         verticalLayout_2->addWidget(label_fwimage);
 
-        label_osdnx = new QLabel(AsusWidget);
+        label_osdnx = new QLabel(groupBox);
         label_osdnx->setObjectName(QStringLiteral("label_osdnx"));
 
         verticalLayout_2->addWidget(label_osdnx);
 
-        label_osimage = new QLabel(AsusWidget);
+        label_osimage = new QLabel(groupBox);
         label_osimage->setObjectName(QStringLiteral("label_osimage"));
 
         verticalLayout_2->addWidget(label_osimage);
@@ -93,22 +140,22 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        lineEdit_fwdnx = new QLineEdit(AsusWidget);
+        lineEdit_fwdnx = new QLineEdit(groupBox);
         lineEdit_fwdnx->setObjectName(QStringLiteral("lineEdit_fwdnx"));
 
         verticalLayout->addWidget(lineEdit_fwdnx);
 
-        lineEdit_fwimage = new QLineEdit(AsusWidget);
+        lineEdit_fwimage = new QLineEdit(groupBox);
         lineEdit_fwimage->setObjectName(QStringLiteral("lineEdit_fwimage"));
 
         verticalLayout->addWidget(lineEdit_fwimage);
 
-        lineEdit_osdnx = new QLineEdit(AsusWidget);
+        lineEdit_osdnx = new QLineEdit(groupBox);
         lineEdit_osdnx->setObjectName(QStringLiteral("lineEdit_osdnx"));
 
         verticalLayout->addWidget(lineEdit_osdnx);
 
-        lineEdit_osimage = new QLineEdit(AsusWidget);
+        lineEdit_osimage = new QLineEdit(groupBox);
         lineEdit_osimage->setObjectName(QStringLiteral("lineEdit_osimage"));
 
         verticalLayout->addWidget(lineEdit_osimage);
@@ -118,7 +165,7 @@ public:
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        pushButton_fwdnx = new QPushButton(AsusWidget);
+        pushButton_fwdnx = new QPushButton(groupBox);
         pushButton_fwdnx->setObjectName(QStringLiteral("pushButton_fwdnx"));
         QIcon icon;
         icon.addFile(QStringLiteral(":/AsusWidget/image/Button/Add_folder.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -127,21 +174,21 @@ public:
 
         verticalLayout_3->addWidget(pushButton_fwdnx);
 
-        pushButton_fwimage = new QPushButton(AsusWidget);
+        pushButton_fwimage = new QPushButton(groupBox);
         pushButton_fwimage->setObjectName(QStringLiteral("pushButton_fwimage"));
         pushButton_fwimage->setIcon(icon);
         pushButton_fwimage->setIconSize(QSize(24, 24));
 
         verticalLayout_3->addWidget(pushButton_fwimage);
 
-        pushButton_osdnx = new QPushButton(AsusWidget);
+        pushButton_osdnx = new QPushButton(groupBox);
         pushButton_osdnx->setObjectName(QStringLiteral("pushButton_osdnx"));
         pushButton_osdnx->setIcon(icon);
         pushButton_osdnx->setIconSize(QSize(24, 24));
 
         verticalLayout_3->addWidget(pushButton_osdnx);
 
-        pushButton_osimage = new QPushButton(AsusWidget);
+        pushButton_osimage = new QPushButton(groupBox);
         pushButton_osimage->setObjectName(QStringLiteral("pushButton_osimage"));
         pushButton_osimage->setIcon(icon);
         pushButton_osimage->setIconSize(QSize(24, 24));
@@ -152,12 +199,15 @@ public:
         horizontalLayout->addLayout(verticalLayout_3);
 
 
-        verticalLayout_5->addLayout(horizontalLayout);
+        verticalLayout_6->addLayout(horizontalLayout);
+
+
+        verticalLayout_7->addWidget(groupBox);
 
         plainTextEdit = new QPlainTextEdit(AsusWidget);
         plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
 
-        verticalLayout_5->addWidget(plainTextEdit);
+        verticalLayout_7->addWidget(plainTextEdit);
 
         groupBox_Button = new QGroupBox(AsusWidget);
         groupBox_Button->setObjectName(QStringLiteral("groupBox_Button"));
@@ -183,10 +233,10 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_2);
 
 
-        verticalLayout_5->addWidget(groupBox_Button);
+        verticalLayout_7->addWidget(groupBox_Button);
 
 
-        verticalLayout_6->addLayout(verticalLayout_5);
+        horizontalLayout_4->addLayout(verticalLayout_7);
 
 
         retranslateUi(AsusWidget);
@@ -197,6 +247,16 @@ public:
     void retranslateUi(QWidget *AsusWidget)
     {
         AsusWidget->setWindowTitle(QApplication::translate("AsusWidget", "Form", 0));
+        groupBox_2->setTitle(QApplication::translate("AsusWidget", "Option", 0));
+        radioButton->setText(QApplication::translate("AsusWidget", "Auto ", 0));
+        radioButton_2->setText(QApplication::translate("AsusWidget", "RadioButton", 0));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("AsusWidget", "Zenfon 5", 0)
+         << QApplication::translate("AsusWidget", "Zenfon 6", 0)
+        );
+        pushButton->setText(QApplication::translate("AsusWidget", "Ch\341\273\215n", 0));
+        groupBox->setTitle(QApplication::translate("AsusWidget", "Ch\341\273\215n file", 0));
         label_fwdnx->setText(QApplication::translate("AsusWidget", "fwdnx ", 0));
         label_fwimage->setText(QApplication::translate("AsusWidget", "fwimage", 0));
         label_osdnx->setText(QApplication::translate("AsusWidget", "osdnx ", 0));

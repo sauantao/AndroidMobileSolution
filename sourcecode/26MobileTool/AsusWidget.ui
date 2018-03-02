@@ -13,132 +13,189 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_6">
+  <layout class="QHBoxLayout" name="horizontalLayout_4">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
+    <layout class="QVBoxLayout" name="verticalLayout_7">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_fwdnx">
-           <property name="text">
-            <string>fwdnx </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_fwimage">
-           <property name="text">
-            <string>fwimage</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_osdnx">
-           <property name="text">
-            <string>osdnx </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_osimage">
-           <property name="text">
-            <string>osimage</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <widget class="QLineEdit" name="lineEdit_fwdnx"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_fwimage"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_osdnx"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_osimage"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <widget class="QPushButton" name="pushButton_fwdnx">
-           <property name="text">
-            <string>Chọn file</string>
-           </property>
-           <property name="icon">
-            <iconset resource="26MobileTool.qrc">
-             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_fwimage">
-           <property name="text">
-            <string>Chọn file</string>
-           </property>
-           <property name="icon">
-            <iconset resource="26MobileTool.qrc">
-             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_osdnx">
-           <property name="text">
-            <string>Chọn File</string>
-           </property>
-           <property name="icon">
-            <iconset resource="26MobileTool.qrc">
-             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_osimage">
-           <property name="text">
-            <string>Chọn file</string>
-           </property>
-           <property name="icon">
-            <iconset resource="26MobileTool.qrc">
-             <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>Option</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QRadioButton" name="radioButton">
+            <property name="text">
+             <string>Auto </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_2">
+            <property name="text">
+             <string>RadioButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string>Zenfon 5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Zenfon 6</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Chọn</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Chọn file</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_fwdnx">
+              <property name="text">
+               <string>fwdnx </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_fwimage">
+              <property name="text">
+               <string>fwimage</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_osdnx">
+              <property name="text">
+               <string>osdnx </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_osimage">
+              <property name="text">
+               <string>osimage</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QLineEdit" name="lineEdit_fwdnx"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_fwimage"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_osdnx"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_osimage"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QPushButton" name="pushButton_fwdnx">
+              <property name="text">
+               <string>Chọn file</string>
+              </property>
+              <property name="icon">
+               <iconset resource="26MobileTool.qrc">
+                <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_fwimage">
+              <property name="text">
+               <string>Chọn file</string>
+              </property>
+              <property name="icon">
+               <iconset resource="26MobileTool.qrc">
+                <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_osdnx">
+              <property name="text">
+               <string>Chọn File</string>
+              </property>
+              <property name="icon">
+               <iconset resource="26MobileTool.qrc">
+                <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_osimage">
+              <property name="text">
+               <string>Chọn file</string>
+              </property>
+              <property name="icon">
+               <iconset resource="26MobileTool.qrc">
+                <normaloff>:/AsusWidget/image/Button/Add_folder.png</normaloff>:/AsusWidget/image/Button/Add_folder.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </item>
      <item>
       <widget class="QPlainTextEdit" name="plainTextEdit"/>

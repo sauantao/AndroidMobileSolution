@@ -22,6 +22,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -31,8 +32,15 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout_2;
+    QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QToolButton *toolButton_OpQualcom;
+    QToolButton *toolButton_OpMediatek;
+    QToolButton *toolButton_OpIntel;
+    QToolButton *toolButton_OpSprd;
+    QToolButton *toolButton_OpAndroid;
+    QToolButton *toolButton_6;
     QTabWidget *tabWidget;
     QVBoxLayout *verticalLayout_process;
     QProgressBar *progressBar;
@@ -60,14 +68,50 @@ public:
         MainWindow->setWindowIcon(icon);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        horizontalLayout_2 = new QHBoxLayout(centralWidget);
-        horizontalLayout_2->setSpacing(3);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(3, 3, 3, 3);
+        horizontalLayout_3 = new QHBoxLayout(centralWidget);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(1);
+        verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        toolButton_OpQualcom = new QToolButton(centralWidget);
+        toolButton_OpQualcom->setObjectName(QStringLiteral("toolButton_OpQualcom"));
+
+        horizontalLayout_2->addWidget(toolButton_OpQualcom);
+
+        toolButton_OpMediatek = new QToolButton(centralWidget);
+        toolButton_OpMediatek->setObjectName(QStringLiteral("toolButton_OpMediatek"));
+        toolButton_OpMediatek->setMinimumSize(QSize(100, 50));
+
+        horizontalLayout_2->addWidget(toolButton_OpMediatek);
+
+        toolButton_OpIntel = new QToolButton(centralWidget);
+        toolButton_OpIntel->setObjectName(QStringLiteral("toolButton_OpIntel"));
+
+        horizontalLayout_2->addWidget(toolButton_OpIntel);
+
+        toolButton_OpSprd = new QToolButton(centralWidget);
+        toolButton_OpSprd->setObjectName(QStringLiteral("toolButton_OpSprd"));
+
+        horizontalLayout_2->addWidget(toolButton_OpSprd);
+
+        toolButton_OpAndroid = new QToolButton(centralWidget);
+        toolButton_OpAndroid->setObjectName(QStringLiteral("toolButton_OpAndroid"));
+
+        horizontalLayout_2->addWidget(toolButton_OpAndroid);
+
+        toolButton_6 = new QToolButton(centralWidget);
+        toolButton_6->setObjectName(QStringLiteral("toolButton_6"));
+
+        horizontalLayout_2->addWidget(toolButton_6);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setEnabled(true);
@@ -171,7 +215,7 @@ public:
         verticalLayout->addLayout(verticalLayout_process);
 
 
-        horizontalLayout_2->addLayout(verticalLayout);
+        horizontalLayout_3->addLayout(verticalLayout);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -205,6 +249,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "26 QualCom Tool", 0));
+        toolButton_OpQualcom->setText(QApplication::translate("MainWindow", "...", 0));
+        toolButton_OpMediatek->setText(QApplication::translate("MainWindow", "...", 0));
+        toolButton_OpIntel->setText(QApplication::translate("MainWindow", "...", 0));
+        toolButton_OpSprd->setText(QApplication::translate("MainWindow", "...", 0));
+        toolButton_OpAndroid->setText(QApplication::translate("MainWindow", "...", 0));
+        toolButton_6->setText(QApplication::translate("MainWindow", "...", 0));
 #ifndef QT_NO_TOOLTIP
         tabWidget->setToolTip(QString());
 #endif // QT_NO_TOOLTIP

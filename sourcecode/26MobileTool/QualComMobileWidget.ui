@@ -278,7 +278,9 @@
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: transparent; border: none;</string>
+             <string notr="true">background: transparent;
+border-radius: 10px;
+border: 1px solid grey;</string>
             </property>
             <property name="text">
              <string>...</string>
@@ -310,7 +312,9 @@
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: transparent; border: none;</string>
+             <string notr="true">background: transparent;
+border-radius: 10px;
+border: 1px solid grey;</string>
             </property>
             <property name="text">
              <string>...</string>
@@ -342,7 +346,9 @@
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: transparent; border: none;</string>
+             <string notr="true">background: transparent;
+border-radius: 10px;
+border: 1px solid grey;</string>
             </property>
             <property name="text">
              <string>...</string>
@@ -368,7 +374,9 @@
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: transparent; border: none;</string>
+             <string notr="true">background: transparent;
+border-radius: 10px;
+border: 1px solid grey;</string>
             </property>
             <property name="text">
              <string>...</string>
@@ -400,7 +408,9 @@
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: transparent; border: none;</string>
+             <string notr="true">background: transparent;
+border-radius: 10px;
+border: 1px solid grey;</string>
             </property>
             <property name="text">
              <string>...</string>
@@ -426,7 +436,10 @@
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: transparent; border: none;</string>
+             <string notr="true">background: transparent;
+border-radius: 10px;
+border: 1px solid grey;
+</string>
             </property>
             <property name="text">
              <string>Tắt máy</string>

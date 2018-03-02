@@ -22,10 +22,12 @@
 #endif //ARM
 
 using namespace std;
+#define CLASS_DLOAD  0
+#define CLASS_SAHARA 1
 static SerialPort m_port;
 static int m_chipset = 8974;
 static int m_protocol = FIREHOSE_PROTOCOL;
-//static int m_class = CLASS_SAHARA;
+static int m_class = CLASS_SAHARA;
 static int m_sector_size = 512;
 static bool m_emergency = false;
 static bool m_verbose = false;

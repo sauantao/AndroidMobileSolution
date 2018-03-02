@@ -49,6 +49,16 @@ protected:
 private slots:
 
 
+    void on_toolButton_OpQualcom_clicked();
+
+    void on_toolButton_OpMediatek_clicked();
+
+    void on_toolButton_OpIntel_clicked();
+
+    void on_toolButton_OpSprd_clicked();
+
+    void on_toolButton_OpAndroid_clicked();
+
 signals:
 
 
