@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'qualcommobilewidget.ui'
+** Form generated from reading UI file 'QualComMobileWidget.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.5.1
 **

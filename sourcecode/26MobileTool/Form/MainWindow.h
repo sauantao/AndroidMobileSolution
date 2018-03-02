@@ -4,7 +4,6 @@
 #include "ui_MainWindow.h"
 
 
-
 namespace Ui {
 	class MainWindow;
 }

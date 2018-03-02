@@ -88,7 +88,7 @@ gcc fh_loader.c -o fh_loader -lrt
 
 ****************************************************************************/
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <windows.h>
 #include <direct.h>
 #include <io.h>

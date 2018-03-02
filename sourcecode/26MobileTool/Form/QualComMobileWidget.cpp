@@ -2,14 +2,6 @@
 #include "ui_QualComMobileWidget.h"
 #include <iostream>
 #include <string>
-#include "serialport.h"
-#include "sahara.h"
-#include "protocol.h"
-#include "dload.h"
-#include "firehose.h"
-#include "targetver.h"
-#include "diskwriter.h"
-#include "partition.h"
 #include <QFileDialog>
 #include <QString>
 #include <Qchar>

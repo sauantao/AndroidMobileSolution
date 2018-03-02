@@ -8,7 +8,7 @@
     <file>image/Button/if_start_71143.png</file>
     <file>image/Button/reboot.png</file>
     <file>image/Button/turnoff.png</file>
-    <file>Add_folder.png</file>
+    <file>image/Button/Add_folder.png</file>
   </qresource>
   <qresource prefix="AsusWidget">
     <file>image/Button/Add_folder.png</file>
