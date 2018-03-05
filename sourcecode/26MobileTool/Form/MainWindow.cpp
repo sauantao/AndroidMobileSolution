@@ -2,8 +2,9 @@
 #include "cmdwidget.h"
 #include "adbwidget.h"
 #include "emmcrawwidget.h"
-#include "QualComMobileWidget.h"
+#include "QualComWidget.h"
 #include "AsusWidget.h"
+#include "MediatekWidget.h"
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QUrl>
@@ -35,13 +36,15 @@ void MainWindow::CreateWidget()
 	adb_widget = new AdbWidget(ui->tabWidget, this);
 	asus_widget = new AsusWidget(ui->tabWidget, this);
     emmcraw_widget = new EmmcRawWidget(ui->tabWidget, this);
-	qualcommobile_widget = new QualComMobileWidget(ui->tabWidget, this);
+	qualcom_widget = new QualComWidget(ui->tabWidget, this);
+	mediatek_widget = new MediatekWidget(ui->tabWidget, this);
 
 	tab_widgets.push_back(adb_widget);
 	tab_widgets.push_back(cmd_widget);
 	tab_widgets.push_back(emmcraw_widget);
-	tab_widgets.push_back(qualcommobile_widget);
+	tab_widgets.push_back(qualcom_widget);
 	tab_widgets.push_back(asus_widget);
+	tab_widgets.push_back(mediatek_widget);
 
 	for (std::list<TabWidgetBase*>::const_iterator it = tab_widgets.begin();
 		it != tab_widgets.end(); ++it)
@@ -49,7 +52,7 @@ void MainWindow::CreateWidget()
 		(*it)->Attach();
 	}
 
-	ui->tabWidget->setCurrentWidget(qualcommobile_widget);
+	ui->tabWidget->setCurrentWidget(qualcom_widget);
 }
 
 

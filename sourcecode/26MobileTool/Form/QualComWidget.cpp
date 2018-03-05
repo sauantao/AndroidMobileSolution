@@ -1,5 +1,5 @@
-#include "QualComMobileWidget.h"
-#include "ui_QualComMobileWidget.h"
+#include "QualComWidget.h"
+#include "ui_QualComWidget.h"
 #include <iostream>
 #include <string>
 #include <QFileDialog>
@@ -27,9 +27,9 @@ static fh_configure_t m_cfg = { 4, "emmc", false, false, true, -1,1024 * 1024 };
 int dnum = -1;
 QString folder = NULL;
 
-QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window) :
+QualComWidget::QualComWidget(QTabWidget *parent, MainWindow *window) :
     TabWidgetBase(3, tr("&Qualcom Widget"), parent),
-    ui(new Ui::QualComMobileWidget),
+    ui(new Ui::QualComWidget),
     main_window(window)
 {
   ui->setupUi(this);
@@ -57,38 +57,38 @@ QualComMobileWidget::QualComMobileWidget(QTabWidget *parent, MainWindow *window)
   connect(ui->radioButton_Flash, SIGNAL(clicked(bool)), this, SLOT(FlashUpdateUI()));
   connect(ui->radioButton_ReadInfo, SIGNAL(clicked(bool)), this, SLOT(ReadInfoUpdateUI()));
 }
-QualComMobileWidget::~QualComMobileWidget()
+QualComWidget::~QualComWidget()
 {
     delete ui;
 }
-void QualComMobileWidget::LockOnUI()
+void QualComWidget::LockOnUI()
 {
     //enableControl(false);
 }
 
-void QualComMobileWidget::DoFinished()
+void QualComWidget::DoFinished()
 {
     //enableControl(true);
 }
 
-void QualComMobileWidget::UpdateUI()
+void QualComWidget::UpdateUI()
 {
     ui->retranslateUi(this);
 }
 
 
-void QualComMobileWidget::SetTabLabel(QTabWidget *tab_widget, int index)
+void QualComWidget::SetTabLabel(QTabWidget *tab_widget, int index)
 {
     QString label = "ADB";// LoadQString(LANGUAGE_TAG, IDS_STRING_CLONEDOWNLOAD);
 
     tab_widget->setTabText(index, label);
 }
 
-void QualComMobileWidget::SetShortCut(int , const QString &)
+void QualComWidget::SetShortCut(int , const QString &)
 {
 
 }
-int QualComMobileWidget::updatePortList()
+int QualComWidget::updatePortList()
 {
 #ifndef ARM
 	HDEVINFO hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_COMPORT, NULL, NULL, DIGCF_DEVICEINTERFACE | DIGCF_PRESENT);
@@ -167,7 +167,7 @@ int QualComMobileWidget::updatePortList()
 #endif //ARM
 	return ERROR_SUCCESS;
 }
-int QualComMobileWidget::QcupdatePortList()
+int QualComWidget::QcupdatePortList()
 {
 #ifndef ARM
 	HDEVINFO hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_COMPORT, NULL, NULL, DIGCF_DEVICEINTERFACE | DIGCF_PRESENT);
@@ -220,7 +220,7 @@ int QualComMobileWidget::QcupdatePortList()
 	return ERROR_SUCCESS;
 }
 
-void QualComMobileWidget::log(int type, const char* message) {
+void QualComWidget::log(int type, const char* message) {
     QString tmp = "gray";
 
     switch (type) {
@@ -233,7 +233,7 @@ void QualComMobileWidget::log(int type, const char* message) {
     ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message));
 }
 
-void QualComMobileWidget::log(int type, std::string message)
+void QualComWidget::log(int type, std::string message)
 {
     QString tmp = "gray";
 
@@ -247,7 +247,7 @@ void QualComMobileWidget::log(int type, std::string message)
     ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message.c_str()));
 }
 
-void QualComMobileWidget::log(int type, QString message)
+void QualComWidget::log(int type, QString message)
 {
 
     QString tmp = "gray";
@@ -262,7 +262,7 @@ void QualComMobileWidget::log(int type, QString message)
     ui->plainTextEdit->appendHtml(tmp.sprintf("<font color=%s><pre>%s</pre></font>", tmp.toStdString().c_str(), message.toStdString().c_str()));
 }
 
-void QualComMobileWidget::on_pushButton_Com_Connec_clicked()
+void QualComWidget::on_pushButton_Com_Connec_clicked()
 {
 
 	QString intdnum = ui->comboBox_ListCom->currentText();
@@ -284,14 +284,14 @@ void QualComMobileWidget::on_pushButton_Com_Connec_clicked()
 		ui->pushButton_Com_Connec->setEnabled(false);
 	}
 }
-void QualComMobileWidget::on_pushButton_Com_Reload_clicked()
+void QualComWidget::on_pushButton_Com_Reload_clicked()
 {
 	ui->comboBox_ListCom->clear();
 	QcupdatePortList();
 	ui->pushButton_Com_Connec->setEnabled(true);
 	dnum = -1;
 }
-void QualComMobileWidget::on_pushButton_BootSelect_clicked()
+void QualComWidget::on_pushButton_BootSelect_clicked()
 {
 	QString quacomboot = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file boot"), "d:\\", "*.mbn");
 	if (quacomboot.isEmpty()){
@@ -304,7 +304,7 @@ void QualComMobileWidget::on_pushButton_BootSelect_clicked()
 	}
 
 }
-void QualComMobileWidget::on_pushButton_RomBootFolder_clicked()
+void QualComWidget::on_pushButton_RomBootFolder_clicked()
 {
 	QString RomBootFolder = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file boot"), "d:\\", "*.mbn");
 	if (RomBootFolder.isNull()){
@@ -320,7 +320,7 @@ void QualComMobileWidget::on_pushButton_RomBootFolder_clicked()
          ui->lineEdit_FolderRom->setText(folder);
 	}
 }
-void QualComMobileWidget::on_pushButton_RawXmlPatchXml_clicked()
+void QualComWidget::on_pushButton_RawXmlPatchXml_clicked()
 {
 	QString rawprogram0 = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file Raw Program"), folder, "*.xml");
 	
@@ -343,7 +343,7 @@ void QualComMobileWidget::on_pushButton_RawXmlPatchXml_clicked()
 		ui->lineEdit_PatchXml->setText(patch);
 	}
 }
-void QualComMobileWidget::AutoBootUpdateUI()
+void QualComWidget::AutoBootUpdateUI()
 {
 	if (ui->checkBox_AutoBoot->isChecked()){
 
@@ -359,16 +359,16 @@ void QualComMobileWidget::AutoBootUpdateUI()
 	}
 
 }
-void QualComMobileWidget::ReadInfoUpdateUI()
+void QualComWidget::ReadInfoUpdateUI()
 {
 	ui->groupBox_RomSelect->setHidden(true);
 }
-void QualComMobileWidget::FlashUpdateUI()
+void QualComWidget::FlashUpdateUI()
 {
 
 	ui->groupBox_RomSelect->setHidden(false);
 }
-void QualComMobileWidget::StringToByte(TCHAR **szSerialData, BYTE *data, int len)
+void QualComWidget::StringToByte(TCHAR **szSerialData, BYTE *data, int len)
 {
 	for (int i = 0; i < len; i++) {
 		TCHAR *hex = szSerialData[i];
@@ -384,7 +384,7 @@ void QualComMobileWidget::StringToByte(TCHAR **szSerialData, BYTE *data, int len
 		}
 	}
 }
-int QualComMobileWidget::RawSerialSend(int dnum, TCHAR **szSerialData, int len)
+int QualComWidget::RawSerialSend(int dnum, TCHAR **szSerialData, int len)
 {
 	int status = ERROR_SUCCESS;
 	BYTE data[256];
@@ -399,7 +399,7 @@ int QualComMobileWidget::RawSerialSend(int dnum, TCHAR **szSerialData, int len)
 	status = m_port.Write(data, len);
 	return status;
 }
-int QualComMobileWidget::EraseDisk(uint64 start, uint64 num, int dnum, TCHAR *szPartName)
+int QualComWidget::EraseDisk(uint64 start, uint64 num, int dnum, TCHAR *szPartName)
 {
 	int status = ERROR_SUCCESS;
 
@@ -427,7 +427,7 @@ int QualComMobileWidget::EraseDisk(uint64 start, uint64 num, int dnum, TCHAR *sz
 	}
 	return status;
 }
-int QualComMobileWidget::WipeDisk(int dnum)
+int QualComWidget::WipeDisk(int dnum)
 {
 	DiskWriter dw;
 	int status;
@@ -444,7 +444,7 @@ int QualComMobileWidget::WipeDisk(int dnum)
 	dw.CloseDevice();
 	return status;
 }
-int QualComMobileWidget::ReadGPT(int dnum)
+int QualComWidget::ReadGPT(int dnum)
 {
 	int status;
 
@@ -470,7 +470,7 @@ int QualComMobileWidget::ReadGPT(int dnum)
 	}
 	return status;
 }
-int QualComMobileWidget::WriteGPT(int dnum, TCHAR *szPartName, TCHAR *szBinFile)
+int QualComWidget::WriteGPT(int dnum, TCHAR *szPartName, TCHAR *szBinFile)
 {
 	int status;
 
@@ -494,7 +494,7 @@ int QualComMobileWidget::WriteGPT(int dnum, TCHAR *szPartName, TCHAR *szBinFile)
 	}
 	return status;
 }
-int QualComMobileWidget::ResetDevice()
+int QualComWidget::ResetDevice()
 {
 	Dload dl(&m_port);
 	int status = ERROR_SUCCESS;
@@ -502,7 +502,7 @@ int QualComMobileWidget::ResetDevice()
 	status = dl.DeviceReset();
 	return status;
 }
-int QualComMobileWidget::RawDiskProgram(TCHAR **pFile, TCHAR *oFile, uint64 dnum)
+int QualComWidget::RawDiskProgram(TCHAR **pFile, TCHAR *oFile, uint64 dnum)
 {
 	DiskWriter dw;
 	int status = ERROR_SUCCESS;
@@ -530,7 +530,7 @@ int QualComMobileWidget::RawDiskProgram(TCHAR **pFile, TCHAR *oFile, uint64 dnum
 	dw.CloseDevice();
 	return status;
 }
-int QualComMobileWidget::RawDiskDump(uint64 start, uint64 num, TCHAR *oFile, int dnum, TCHAR *szPartName)
+int QualComWidget::RawDiskDump(uint64 start, uint64 num, TCHAR *oFile, int dnum, TCHAR *szPartName)
 {
 	DiskWriter dw;
 	int status = ERROR_SUCCESS;
@@ -559,7 +559,7 @@ int QualComMobileWidget::RawDiskDump(uint64 start, uint64 num, TCHAR *oFile, int
 	}
 	return status;
 }
-int QualComMobileWidget::DumpDeviceInfo(void)
+int QualComWidget::DumpDeviceInfo(void)
 {
 	int status = ERROR_SUCCESS;
 	Sahara sh(&m_port);
@@ -591,7 +591,7 @@ int QualComMobileWidget::DumpDeviceInfo(void)
 
 	return status;
 }
-int QualComMobileWidget::LoadFlashProg(TCHAR *mprgFile)
+int QualComWidget::LoadFlashProg(TCHAR *mprgFile)
 {
 	QString msg;
 	int status = ERROR_SUCCESS;
@@ -619,7 +619,7 @@ int QualComMobileWidget::LoadFlashProg(TCHAR *mprgFile)
 	}
 	return status;
 }
-void QualComMobileWidget::on_toolButton_Start_clicked()
+void QualComWidget::on_toolButton_Start_clicked()
 {
 
 	//int dnum = 20;

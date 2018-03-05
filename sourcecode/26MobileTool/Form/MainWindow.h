@@ -13,8 +13,9 @@ class CmdWidget;
 class QTabWidget;
 class AdbWidget;
 class EmmcRawWidget;
-class QualComMobileWidget;
+class QualComWidget;
 class AsusWidget;
+class MediatekWidget;
 
 class MainWindow : public QMainWindow
 {
@@ -35,11 +36,12 @@ public slots:
 
 private:
 
-	QualComMobileWidget * qualcommobile_widget;
+	QualComWidget * qualcom_widget;
 	CmdWidget * cmd_widget;
 	AdbWidget * adb_widget;
 	EmmcRawWidget * emmcraw_widget;
 	AsusWidget * asus_widget;
+	MediatekWidget * mediatek_widget;
 	std::list<TabWidgetBase*> tab_widgets;
 
 protected:

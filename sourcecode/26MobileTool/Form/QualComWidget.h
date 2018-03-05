@@ -1,5 +1,5 @@
-#ifndef QUALCOMMOBILEWIDGET_H
-#define QUALCOMMOBILEWIDGET_H
+#ifndef QUALCOMWIDGET_H
+#define QUALCOMWIDGET_H
 
 #include <QWidget>
 #include <QProcess>
@@ -25,10 +25,10 @@
 
 
 namespace Ui {
-class QualComMobileWidget;
+class QualComWidget;
 }
 class MainWindow;
-class QualComMobileWidget : public TabWidgetBase
+class QualComWidget : public TabWidgetBase
 {
     Q_OBJECT
     enum LogType {
@@ -40,8 +40,8 @@ class QualComMobileWidget : public TabWidgetBase
 
 public:
 
-    explicit QualComMobileWidget(QTabWidget *parent, MainWindow* window);
-    ~QualComMobileWidget();
+    explicit QualComWidget(QTabWidget *parent, MainWindow* window);
+    ~QualComWidget();
 
      DECLARE_TABWIDGET_VFUNCS()
 
@@ -69,7 +69,7 @@ public slots:
 
 private:
 
-    Ui::QualComMobileWidget* ui;
+    Ui::QualComWidget* ui;
     MainWindow* main_window;
 	   
 	void log(int type, const char* message);
@@ -88,4 +88,4 @@ private slots:
 	void on_toolButton_Start_clicked();
 };
 
-#endif // QUALCOMMOBILEWIDGET_H
+#endif // QUALCOMWIDGET_H

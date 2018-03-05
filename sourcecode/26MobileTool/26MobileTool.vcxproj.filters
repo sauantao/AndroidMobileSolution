@@ -96,15 +96,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_MainWindowCallback.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Form\QualComMobileWidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_QualComMobileWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_QualComMobileWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="Form\TabWidgetBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -162,6 +153,24 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Form\QualComWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QualComWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QualComWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MediatekWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MediatekWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MediatekWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="26MobileTool.qrc">
@@ -180,9 +189,6 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Form\Widget\MainWindow.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Form\Widget\QualComMobileWidget.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Form\AdbWidget.h">
@@ -206,13 +212,22 @@
     <CustomBuild Include="Form\MainWindowCallback.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Form\QualComMobileWidget.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="Form\TabWidgetBase.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Class\MyThread.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Form\Widget\QualComWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Form\QualComWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Form\Widget\MediatekWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MediatekWidget.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -261,9 +276,6 @@
     <ClInclude Include="GeneratedFiles\ui_MainWindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_QualComMobileWidget.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="Qualcom\emmcdl\crc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -306,8 +318,14 @@
     <ClInclude Include="Qualcom\emmcdl\xmlparser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="GeneratedFiles\ui_QualComWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Form\resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_MediatekWidget.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

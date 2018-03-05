@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>QualComMobileWidget</class>
- <widget class="QWidget" name="QualComMobileWidget">
+ <class>QualComWidget</class>
+ <widget class="QWidget" name="QualComWidget">
   <property name="geometry">
    <rect>
     <x>0</x>

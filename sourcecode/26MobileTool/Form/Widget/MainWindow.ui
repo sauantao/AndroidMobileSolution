@@ -6,27 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>685</height>
+    <width>924</width>
+    <height>585</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>1000</width>
-    <height>685</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>1000</width>
-    <height>685</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>26 QualCom Tool</string>
+   <string>26 Mobile Main Tool</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="26MobileTool.qrc">
+   <iconset resource="../../26MobileTool.qrc">
     <normaloff>:/AppIcon/image/Mobile.ico</normaloff>:/AppIcon/image/Mobile.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -40,18 +28,32 @@
           <property name="text">
            <string>...</string>
           </property>
+          <property name="icon">
+           <iconset resource="../../26MobileTool.qrc">
+            <normaloff>:/ImageButton/image/Button/if_start_71143.png</normaloff>:/ImageButton/image/Button/if_start_71143.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QToolButton" name="toolButton_OpMediatek">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>50</height>
-           </size>
-          </property>
           <property name="text">
            <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../26MobileTool.qrc">
+            <normaloff>:/ImageButton/image/Button/turnoff.png</normaloff>:/ImageButton/image/Button/turnoff.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -60,12 +62,32 @@
           <property name="text">
            <string>...</string>
           </property>
+          <property name="icon">
+           <iconset resource="../../26MobileTool.qrc">
+            <normaloff>:/ImageButton/image/Button/reboot.png</normaloff>:/ImageButton/image/Button/reboot.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QToolButton" name="toolButton_OpSprd">
           <property name="text">
            <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../26MobileTool.qrc">
+            <normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -74,12 +96,32 @@
           <property name="text">
            <string>...</string>
           </property>
+          <property name="icon">
+           <iconset resource="../../26MobileTool.qrc">
+            <normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QToolButton" name="toolButton_6">
           <property name="text">
            <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../26MobileTool.qrc">
+            <normaloff>:/ImageButton/image/Button/checl.png</normaloff>:/ImageButton/image/Button/checl.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -345,7 +387,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>924</width>
      <height>21</height>
     </rect>
    </property>
@@ -387,7 +429,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="26MobileTool.qrc"/>
+  <include location="../../26MobileTool.qrc"/>
  </resources>
  <connections/>
 </ui>
