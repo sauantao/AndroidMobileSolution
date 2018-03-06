@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>924</width>
-    <height>585</height>
+    <width>1066</width>
+    <height>621</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,112 +21,6 @@
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QToolButton" name="toolButton_OpQualcom">
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../26MobileTool.qrc">
-            <normaloff>:/ImageButton/image/Button/if_start_71143.png</normaloff>:/ImageButton/image/Button/if_start_71143.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>64</width>
-            <height>64</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="toolButton_OpMediatek">
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../26MobileTool.qrc">
-            <normaloff>:/ImageButton/image/Button/turnoff.png</normaloff>:/ImageButton/image/Button/turnoff.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>64</width>
-            <height>64</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="toolButton_OpIntel">
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../26MobileTool.qrc">
-            <normaloff>:/ImageButton/image/Button/reboot.png</normaloff>:/ImageButton/image/Button/reboot.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>64</width>
-            <height>64</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="toolButton_OpSprd">
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../26MobileTool.qrc">
-            <normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>64</width>
-            <height>64</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="toolButton_OpAndroid">
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../26MobileTool.qrc">
-            <normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>64</width>
-            <height>64</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="toolButton_6">
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../26MobileTool.qrc">
-            <normaloff>:/ImageButton/image/Button/checl.png</normaloff>:/ImageButton/image/Button/checl.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>64</width>
-            <height>64</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
       <item>
        <widget class="QTabWidget" name="tabWidget">
         <property name="enabled">
@@ -387,7 +281,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>924</width>
+     <width>1066</width>
      <height>21</height>
     </rect>
    </property>

@@ -8,7 +8,12 @@ DESTDIR = ../../../App.publish/builder/26MobileTool/Win32
 QT += core gui widgets serialport
 CONFIG += release
 DEFINES += WIN64 QT_DLL QT_WIDGETS_LIB QT_SERIALPORT_LIB
-INCLUDEPATH += $(SolutionDir)sourcecode/26MobileTool/Qualcom/emmcdl \
+INCLUDEPATH += ../Intel/downloader \
+    ../Intel/downloader/cloverviewplus \
+    ../ \
+    $(SolutionDir)sourcecode/26MobileTool/Form \
+    $(SolutionDir)sourcecode/26MobileTool/Class \
+    $(SolutionDir)sourcecode/26MobileTool/Qualcom/emmcdl \
     $(SolutionDir)sourcecode/26MobileTool/xfstk-dldr-api \
     ./GeneratedFiles \
     . \
@@ -24,7 +29,8 @@ OBJECTS_DIR += release
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 win32:RC_FILE = 26MobileTool.rc
-HEADERS += ./Qualcom/emmcdl/crc.h \
+HEADERS += ./Form/resource.h \
+    ./Qualcom/emmcdl/crc.h \
     ./Qualcom/emmcdl/diskwriter.h \
     ./Qualcom/emmcdl/dload.h \
     ./Qualcom/emmcdl/emmcdl.h \
@@ -38,29 +44,31 @@ HEADERS += ./Qualcom/emmcdl/crc.h \
     ./Qualcom/emmcdl/sparse.h \
     ./Qualcom/emmcdl/targetver.h \
     ./Qualcom/emmcdl/xmlparser.h \
-    ./resource.h \
-    ./xfstk-dldr-api/xfstk-dldr-api_global.h \
-    ./xfstk-dldr-api/xfstkdldrapi.h \
-    ./MainWindow.h \
-    ./AdbWidget.h \
-    ./CmdWidget.h \
-    ./AsusWidget.h \
-    ./EmmcRawWidget.h \
-    ./MyThread.h \
-    ./MainWindowCallback.h \
-    ./MainController.h \
-    ./QualComMobileWidget.h \
-    ./TabWidgetBase.h
-SOURCES += ./AdbWidget.cpp \
-    ./AsusWidget.cpp \
-    ./CmdWidget.cpp \
-    ./EmmcRawWidget.cpp \
-    ./MainController.cpp \
-    ./MainWindow.cpp \
+    ./Form/MediatekWidget.h \
+    ./Class/MyThread.h \
+    ./Form/TabWidgetBase.h \
+    ./Form/QualComWidget.h \
+    ./Form/MainWindowCallback.h \
+    ./Form/MainWindow.h \
+    ./Form/MainController.h \
+    ./Form/EmmcRawWidget.h \
+    ./Form/CmdWidget.h \
+    ./Form/AsusWidget.h \
+    ./Form/AdbWidget.h \
+    ./Intel/downloader/cloverviewplus/xfstkdldrpluginuserinterface.h \
+    ./Intel/downloader/cloverviewplus/xfstkdldrthread.h
+SOURCES += ./Class/MyThread.cpp \
+    ./Form/AdbWidget.cpp \
+    ./Form/AsusWidget.cpp \
+    ./Form/CmdWidget.cpp \
+    ./Form/EmmcRawWidget.cpp \
+    ./Form/MainController.cpp \
+    ./Form/MainWindow.cpp \
+    ./Form/MainWindowCallback.cpp \
+    ./Form/MediatekWidget.cpp \
+    ./Form/QualComWidget.cpp \
+    ./Form/TabWidgetBase.cpp \
     ./main.cpp \
-    ./MainWindowCallback.cpp \
-    ./MyThread.cpp \
-    ./QualComMobileWidget.cpp \
     ./Qualcom/emmcdl/crc.cpp \
     ./Qualcom/emmcdl/diskwriter.cpp \
     ./Qualcom/emmcdl/dload.cpp \
@@ -73,11 +81,15 @@ SOURCES += ./AdbWidget.cpp \
     ./Qualcom/emmcdl/serialport.cpp \
     ./Qualcom/emmcdl/sparse.cpp \
     ./Qualcom/emmcdl/xmlparser.cpp \
-    ./TabWidgetBase.cpp
-FORMS += ./MainWindow.ui \
-    ./AdbWidget.ui \
-    ./CmdWidget.ui \
-    ./EmmcRawWidget.ui \
-    ./qualcommobilewidget.ui \
-    ./AsusWidget.ui
+    ./Intel/downloader/cloverviewplus/xfstkdldrpluginuserinterface.cpp \
+    ./Intel/downloader/cloverviewplus/xfstkdldrthread.cpp
+FORMS += ./Form/Widget/AdbWidget.ui \
+    ./Form/Widget/AsusWidget.ui \
+    ./Form/Widget/CmdWidget.ui \
+    ./Form/Widget/EmmcRawWidget.ui \
+    ./Form/Widget/MainWindow.ui \
+    ./Form/Widget/QualComWidget.ui \
+    ./Form/Widget/MediatekWidget.ui \
+    ./Intel/downloader/cloverviewplus/xfstkdldrpluginoptionsinterface.ui \
+    ./Intel/downloader/cloverviewplus/xfstkdldrpluginuserinterface.ui
 RESOURCES += 26MobileTool.qrc

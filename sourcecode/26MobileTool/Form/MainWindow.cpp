@@ -15,11 +15,11 @@
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
-	: QMainWindow(parent), ui(new Ui::MainWindow) 
+	: QMainWindow(parent), ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-    CreateWidget();
-
+	CreateWidget();
+	//mythread = NULL;
 }
 MainWindow::~MainWindow()
 {
@@ -38,6 +38,7 @@ void MainWindow::CreateWidget()
     emmcraw_widget = new EmmcRawWidget(ui->tabWidget, this);
 	qualcom_widget = new QualComWidget(ui->tabWidget, this);
 	mediatek_widget = new MediatekWidget(ui->tabWidget, this);
+	intel_widtget = new XfstkDldrPluginUserInterface(ui->tabWidget, this);
 
 	tab_widgets.push_back(adb_widget);
 	tab_widgets.push_back(cmd_widget);
@@ -45,6 +46,7 @@ void MainWindow::CreateWidget()
 	tab_widgets.push_back(qualcom_widget);
 	tab_widgets.push_back(asus_widget);
 	tab_widgets.push_back(mediatek_widget);
+	tab_widgets.push_back(intel_widtget);
 
 	for (std::list<TabWidgetBase*>::const_iterator it = tab_widgets.begin();
 		it != tab_widgets.end(); ++it)
@@ -132,16 +134,24 @@ int MainWindow::Tesmain()
 
 void MainWindow::on_toolButton_OpQualcom_clicked()
 {
-	QString filename = "D:\\MobileSolution\\Git\\SNWriter\\Output\\SN Writer.exe";
-	QDesktopServices::openUrl(QUrl("file:///" + filename, QUrl::TolerantMode));
+	/*QString filename = "D:\\MobileSolution\\Git\\SNWriter\\Output\\SN Writer.exe";
+	QDesktopServices::openUrl(QUrl("file:///" + filename, QUrl::TolerantMode));*/
+
+	//mythread = new MyThread;
+	//connect(mythread, SIGNAL(process_changed(int)), ui->progressBar, SLOT(setValue(int)));
+	//mythread->start();
+
 }
 
 void MainWindow::on_toolButton_OpMediatek_clicked()
 {
 	//QString filename = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file"), "d:\\", "*.*");
 	//QUrl url(filename);
-	QString filename = "D:\\MobileSolution\\App.publish\\builder\\MobileTool\\Win32\\26MobileTool\\Mobiletool.exe";
-	QDesktopServices::openUrl(QUrl("file:///"+filename,QUrl::TolerantMode));
+	//QString filename = "D:\\MobileSolution\\App.publish\\builder\\MobileTool\\Win32\\26MobileTool\\Mobiletool.exe";
+	//QDesktopServices::openUrl(QUrl("file:///"+filename,QUrl::TolerantMode));
+	//mythread->stop();
+
+
 }
 
 void MainWindow::on_toolButton_OpIntel_clicked()

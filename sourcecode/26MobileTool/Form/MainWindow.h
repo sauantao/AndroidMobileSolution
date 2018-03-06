@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
-
+#include "mythread.h"
+#include "xfstkdldrpluginuserinterface.h"
 
 namespace Ui {
 	class MainWindow;
@@ -16,6 +17,7 @@ class EmmcRawWidget;
 class QualComWidget;
 class AsusWidget;
 class MediatekWidget;
+class XfstkDldrPluginUserInterface;
 
 class MainWindow : public QMainWindow
 {
@@ -35,6 +37,8 @@ public slots:
    
 
 private:
+	
+	//MyThread * mythread;
 
 	QualComWidget * qualcom_widget;
 	CmdWidget * cmd_widget;
@@ -43,6 +47,7 @@ private:
 	AsusWidget * asus_widget;
 	MediatekWidget * mediatek_widget;
 	std::list<TabWidgetBase*> tab_widgets;
+	XfstkDldrPluginUserInterface * intel_widtget;
 
 protected:
 
