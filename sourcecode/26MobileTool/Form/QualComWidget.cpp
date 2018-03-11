@@ -175,7 +175,7 @@ int QualComWidget::QcupdatePortList()
 	DWORD dwSize;
 #endif //ARM
 	ui->plainTextEdit->clear();
-	log(kLogTypeInfo, QString::fromUtf8("  Đang tìm kiếm thiết bị QualCom  ...\n"));
+	log(kLogTypeInfo, QString::fromUtf8("Đang tìm kiếm thiết bị QualCom  ...\n"));
 #ifndef ARM
 	if (hDevInfo != INVALID_HANDLE_VALUE) {
 		// Successfully got a list of ports
@@ -269,7 +269,7 @@ void QualComWidget::on_pushButton_Com_Connec_clicked()
 
 	if (!(intdnum.contains("QDLoader 9008")))
 	{
-		log(kLogTypeInfo, QString::fromUtf8("   Không có thiết bị nào được kết nối .\n   Hãy kiểm tra lại kết nối cáp thiết bị , driver ...\n   Sau đó bấm nút làm mới cổng com & thử lại "));
+		log(kLogTypeInfo, QString::fromUtf8("Không có thiết bị nào được kết nối .\nHãy kiểm tra lại kết nối cáp thiết bị , driver ...\nSau đó bấm nút làm mới cổng com & thử lại "));
 	}
 	else
 	{
@@ -645,21 +645,22 @@ void QualComWidget::on_toolButton_Start_clicked()
 	//QString qccomname = "QDLoader 9008";
 	if (ui->radioButton_ReadInfo->isChecked())
 	{
-
-
 		QString intdnum = ui->comboBox_ListCom->currentText();
+		QString temp = QTime::currentTime().toString();
+		temp.append(QString(" - "));
+		temp.append(QString::fromUtf8("Không có thiết bị nào được kết nối .\nHãy kiểm tra lại kết nối cáp thiết bị , driver ...\nSau đó bấm nút làm mới cổng com & thử lại\n "));
 
 		if (!(intdnum.contains("QDLoader 9008"))) {
-			log(kLogTypeInfo, QString::fromUtf8("   Không có thiết bị nào được kết nối .\n   Hãy kiểm tra lại kết nối cáp thiết bị , driver ...\n   Sau đó bấm nút làm mới cổng com & thử lại "));
+			log(kLogTypeInfo, temp);
 		}
 		else {
 			if (dnum == -1) {
-				log(kLogTypeInfo, QString::fromUtf8(" Hãy bấm kết nối để thiết lập kết nối cổng COM. "));
+				log(kLogTypeInfo, QString::fromUtf8("Hãy bấm kết nối để thiết lập kết nối cổng COM. "));
 			}
 			if (!(dnum == -1)) {
 				QString dnumtemp = QString::number(dnum);
 				//log(kLogTypeWarning, str);
-				log(kLogTypeWarning, QString::fromUtf8("  Kết nối với cổng COM : ") + dnumtemp);
+				log(kLogTypeWarning, QString::fromUtf8("Kết nối với cổng COM : ") + dnumtemp);
 			}
 		}
 		m_port.Open(dnum);

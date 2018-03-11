@@ -9,7 +9,7 @@
 #include <QTimer>
 #include "xfstkdldrthread.h"
 #include <xfstkdldrapi.h>
-#include "xfstkdldrpluginoptionsinterface.h"
+//#include "xfstkdldrpluginoptionsinterface.h"
 #include "TabWidgetBase.h"
 #include "IntelSettingDialog.h"
 
@@ -139,6 +139,7 @@ private:
 
 	//Ui::XfstkDldrPluginUserInterface *ui;
 	MainWindow* main_window_;
+
 	IntelSettingDialog SettingDialog;
 
 

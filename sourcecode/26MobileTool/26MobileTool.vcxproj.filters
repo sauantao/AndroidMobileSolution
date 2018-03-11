@@ -189,15 +189,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_xfstkdldrthread.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Intel\downloader\cloverviewplus\xfstkdldrpluginoptionsinterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_xfstkdldrpluginoptionsinterface.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_xfstkdldrpluginoptionsinterface.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="IntelSettingDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -277,9 +268,6 @@
     </CustomBuild>
     <CustomBuild Include="Intel\downloader\cloverviewplus\xfstkdldrpluginoptionsinterface.ui">
       <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Intel\downloader\cloverviewplus\xfstkdldrpluginoptionsinterface.h">
-      <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Form\Dialog\IntelSettingDialog.ui">
       <Filter>Form Files</Filter>

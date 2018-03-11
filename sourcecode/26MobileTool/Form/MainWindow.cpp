@@ -143,6 +143,8 @@ void MainWindow::on_toolButton_OpQualcom_clicked()
 
 }
 
+
+
 void MainWindow::on_toolButton_OpMediatek_clicked()
 {
 	//QString filename = QFileDialog::getOpenFileName(this, QString::fromUtf8("Chọn file"), "d:\\", "*.*");
@@ -190,4 +192,12 @@ void MainWindow::on_toolButton_OpAndroid_clicked()
 	}
 
 	myProcess->start(program, arguments);
+}
+void MainWindow::closeEvent(QCloseEvent * event)
+{
+	if (QMessageBox::question(this, QString::fromUtf8("Chú ý"), QString::fromUtf8("Bạn có muốn đóng form")) == QMessageBox::No)
+	{
+		event->ignore();
+	}
+
 }

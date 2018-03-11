@@ -13,9 +13,27 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_8">
+  <layout class="QHBoxLayout" name="horizontalLayout_9">
+   <property name="spacing">
+    <number>1</number>
+   </property>
+   <property name="leftMargin">
+    <number>2</number>
+   </property>
+   <property name="topMargin">
+    <number>2</number>
+   </property>
+   <property name="rightMargin">
+    <number>2</number>
+   </property>
+   <property name="bottomMargin">
+    <number>2</number>
+   </property>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_8">
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <property name="spacing">
+      <number>1</number>
+     </property>
      <item>
       <widget class="QGroupBox" name="groupBox_Option">
        <property name="title">
@@ -55,18 +73,18 @@
          </layout>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
-          <item>
-           <widget class="QCheckBox" name="checkBox_QcOnly">
-            <property name="text">
-             <string>Chỉ hiển thị kết nối qualcom</string>
-            </property>
-           </widget>
-          </item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
           <item>
            <widget class="QCheckBox" name="checkBox_AutoBoot">
             <property name="text">
              <string>Tự động chọn boot</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_QcOnly">
+            <property name="text">
+             <string>Chỉ hiển thị kết nối qualcom</string>
             </property>
            </widget>
           </item>
@@ -286,7 +304,7 @@ border: 1px solid grey;</string>
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="26MobileTool.qrc">
+             <iconset>
               <normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</normaloff>:/ImageButton/image/Button/if_button-check_blue_68680.png</iconset>
             </property>
             <property name="iconSize">
@@ -320,7 +338,7 @@ border: 1px solid grey;</string>
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="26MobileTool.qrc">
+             <iconset>
               <normaloff>:/ImageButton/image/Button/if_button-cross_red_69065.png</normaloff>:/ImageButton/image/Button/if_button-cross_red_69065.png</iconset>
             </property>
             <property name="iconSize">
@@ -354,7 +372,7 @@ border: 1px solid grey;</string>
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="26MobileTool.qrc">
+             <iconset>
               <normaloff>:/ImageButton/image/Button/checl.png</normaloff>:/ImageButton/image/Button/checl.png</iconset>
             </property>
             <property name="iconSize">
@@ -382,7 +400,7 @@ border: 1px solid grey;</string>
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="26MobileTool.qrc">
+             <iconset>
               <normaloff>:/ImageButton/image/Button/reboot.png</normaloff>:/ImageButton/image/Button/reboot.png</iconset>
             </property>
             <property name="iconSize">
@@ -416,7 +434,7 @@ border: 1px solid grey;</string>
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="26MobileTool.qrc">
+             <iconset>
               <normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</normaloff>:/ImageButton/image/Button/if_button-power_red_69071.png</iconset>
             </property>
             <property name="iconSize">
@@ -431,8 +449,8 @@ border: 1px solid grey;</string>
            <widget class="QToolButton" name="toolButton_Start">
             <property name="maximumSize">
              <size>
-              <width>64</width>
-              <height>64</height>
+              <width>32</width>
+              <height>32</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -445,13 +463,13 @@ border: 1px solid grey;
              <string>Tắt máy</string>
             </property>
             <property name="icon">
-             <iconset resource="26MobileTool.qrc">
+             <iconset>
               <normaloff>:/ImageButton/image/Button/power.png</normaloff>:/ImageButton/image/Button/power.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>64</width>
-              <height>64</height>
+              <width>32</width>
+              <height>32</height>
              </size>
             </property>
             <property name="toolButtonStyle">

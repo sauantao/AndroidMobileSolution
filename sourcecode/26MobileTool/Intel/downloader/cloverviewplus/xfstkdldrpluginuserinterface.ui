@@ -54,14 +54,14 @@
               <item row="0" column="1">
                <widget class="QLineEdit" name="FWDnXBin">
                 <property name="text">
-                 <string>D:/ROM/ASUS/Tool unbrick zen5_6/zen5/dnx.bin</string>
+                 <string>N/A</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="IFWIBin">
                 <property name="text">
-                 <string>D:/ROM/ASUS/Tool unbrick zen5_6/zen5/ifwi.bin</string>
+                 <string>N/A</string>
                 </property>
                </widget>
               </item>
@@ -109,14 +109,14 @@
               <item row="0" column="1">
                <widget class="QLineEdit" name="OSDnXBin">
                 <property name="text">
-                 <string>D:/ROM/ASUS/Tool unbrick zen5_6/zen5/dnx_osr.bin</string>
+                 <string>N/A</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="OSImageBin">
                 <property name="text">
-                 <string>D:/ROM/ASUS/Tool unbrick zen5_6/zen5/fastboot-2.19.img.pos.bin</string>
+                 <string>N/A</string>
                 </property>
                </widget>
               </item>

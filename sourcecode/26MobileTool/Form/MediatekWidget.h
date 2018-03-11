@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QtCore>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 #include "TabWidgetBase.h"
 
 namespace Ui {
@@ -19,6 +22,16 @@ public:
 	
 	~MediatekWidget();
 	DECLARE_TABWIDGET_VFUNCS()
+
+ private slots:
+    void on_pushButton_Loadfile_clicked();
+
+    void on_pushButton_Save_clicked();
+
+    void on_pushButton_Load_clicked();
+
+    void on_pushButton_Clear_clicked();
+
 private:
 
 	Ui::MediatekWidget* ui;

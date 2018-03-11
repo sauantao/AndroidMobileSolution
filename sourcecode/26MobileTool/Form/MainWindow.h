@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
 #include "mythread.h"
+#include <QCloseEvent>
 #include "xfstkdldrpluginuserinterface.h"
 
 namespace Ui {
@@ -26,30 +27,42 @@ public:
 
 	//MainWindow(QWidget *parent = Q_NULLPTR);
 	explicit MainWindow(QWidget *parent = 0);
+
 	~MainWindow();
 
 	int Tesmain();
+
 	void CreateWidget();
 
 	Ui::MainWindow *ui;
-
-public slots:
-   
 
 private:
 	
 	//MyThread * mythread;
 
 	QualComWidget * qualcom_widget;
+
 	CmdWidget * cmd_widget;
+
 	AdbWidget * adb_widget;
+
 	EmmcRawWidget * emmcraw_widget;
+
 	AsusWidget * asus_widget;
+
 	MediatekWidget * mediatek_widget;
+
 	std::list<TabWidgetBase*> tab_widgets;
+
 	XfstkDldrPluginUserInterface * intel_widtget;
 
 protected:
+
+	void closeEvent(QCloseEvent *event);
+
+signals:
+
+public slots:
 
 	
 private slots:
@@ -64,9 +77,5 @@ private slots:
     void on_toolButton_OpSprd_clicked();
 
     void on_toolButton_OpAndroid_clicked();
-
-signals:
-
-
 };
 #endif // MAINWINDOW_H
